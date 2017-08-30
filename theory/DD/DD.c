@@ -1,9 +1,9 @@
 /* File: DD.c */
 /*
-  This file is a part of the Corrfunc package
+  This file is a part of the corrfunc package
   Copyright (C) 2015-- Manodeep Sinha (manodeep@gmail.com)
   License: MIT LICENSE. See LICENSE file under the top-level
-  directory at https://github.com/manodeep/Corrfunc/
+  directory at https://github.com/manodeep/corrfunc/
   
 --- DD file1 format1 file2 format2 binfile numthreads [weight_method weights_file1 weights_format1 [weights_file2 weights_format2]] > DDfile
 --- Measure the cross-correlation function DD(r) for two different
@@ -55,7 +55,7 @@ int main(int argc, char *argv[])
     weight_method_t weight_method = NONE;
     int num_weights = 0;
 
-    /*---Corrfunc-variables----------------*/
+    /*---corrfunc-variables----------------*/
 #if !(defined(USE_OMP) && defined(_OPENMP))
     const int nthreads=1;
     const char argnames[][30]={"file1","format1","file2","format2","binfile"};

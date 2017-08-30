@@ -1,9 +1,9 @@
 =======================
-Corrfunc Documentation
+corrfunc Documentation
 =======================
 
-Corrfunc is a set of high-performance routines to measure clustering statistics.
-The main features of Corrfunc are:
+corrfunc is a set of high-performance routines to measure clustering statistics.
+The main features of corrfunc are:
 
 * **Fast** All theory pair-counting is at least an order of magnitude faster than all existing public codes. Particularly suited for MCMC.
 * **OpenMP Parallel** All pair-counting codes can be done in parallel (with strong scaling efficiency >~ 95% up to 10 cores)
@@ -12,10 +12,10 @@ The main features of Corrfunc are:
 * **Future-proof** As I get access to newer instruction-sets, the codes will
   get updated to use the latest and greatest CPU features. 
 
-The source code is publicly available at https://github.com/manodeep/Corrfunc.
+The source code is publicly available at https://github.com/manodeep/corrfunc.
 
 *********************
-Overview of Corrfunc
+Overview of corrfunc
 *********************
 
 .. toctree::

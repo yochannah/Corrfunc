@@ -79,7 +79,7 @@ a font-set that supports Greek characters. For details on how to display unicode
 characters on xterm, see:\n\n\
   http://unix.stackexchange.com/questions/196152/xterm-not-displaying-unicode\n\n\
 If none of the fixes work, disable ``USE_UNICODE`` option in ``common.mk`` in \n\
-the ROOT DIRECTORY of ``Corrfunc`` and re-install the entire packge.\n"
+the ROOT DIRECTORY of ``corrfunc`` and re-install the entire packge.\n"
 #else
 #define PI_CHAR PI_SAFE
 #define XI_CHAR XI_SAFE

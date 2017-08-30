@@ -5,7 +5,7 @@
 Example python code to call the mocks clustering functions
 from python. This script calls the python extensions
 directly; however the recommended use is via the wrappers provided
-in :py:mod:`Corrfunc.mocks`.
+in :py:mod:`corrfunc.mocks`.
 """
 from __future__ import (absolute_import, division, print_function,
                         unicode_literals)
@@ -15,15 +15,15 @@ def main():
     from os.path import dirname, abspath, join as pjoin
     import numpy as np
     import time
-    import Corrfunc
-    from Corrfunc.io import read_catalog
-    from Corrfunc._countpairs_mocks import\
+    import corrfunc
+    from corrfunc.io import read_catalog
+    from corrfunc._countpairs_mocks import\
         countpairs_rp_pi_mocks as rp_pi_mocks_extn,\
         countpairs_theta_mocks as theta_mocks_extn,\
         countspheres_vpf_mocks as vpf_mocks_extn
 
     tstart = time.time()
-    filename = pjoin(dirname(abspath(Corrfunc.__file__)),
+    filename = pjoin(dirname(abspath(corrfunc.__file__)),
                      "../mocks/tests/data/", "Mr19_mock_northonly.rdcz.ff")
 
     t0 = time.time()

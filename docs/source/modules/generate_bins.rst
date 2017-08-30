@@ -1,10 +1,10 @@
 .. _generate_bins:
 
 *******************************************
-Specifying the separation bins in Corrfunc
+Specifying the separation bins in corrfunc
 *******************************************
 
-All of the python extensions for `Corrfunc` accept
+All of the python extensions for `corrfunc` accept
 either a filename or an array for specifying the
 :math:`r_p` or :math:`\theta`. 
 

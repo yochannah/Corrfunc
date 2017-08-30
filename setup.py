@@ -19,8 +19,8 @@ else:
 if os.name != 'posix':
     sys.exit("Sorry, Windows is not supported")
 
-base_url = "https://github.com/manodeep/Corrfunc"
-projectname = 'Corrfunc'
+base_url = "https://github.com/manodeep/corrfunc"
+projectname = 'corrfunc'
 
 # global variables
 version = ''
@@ -29,8 +29,8 @@ compiler = ''
 builtins.__CORRFUNC_SETUP__ = True
 
 # partial import
-import Corrfunc
-from Corrfunc import read_text_file, write_text_file, which
+import corrfunc
+from corrfunc import read_text_file, write_text_file, which
 
 # numpy 1.7 supports python 2.4-2.5; python 3.1-3.3.
 try:
@@ -201,9 +201,9 @@ def requirements_check():
     global version
     version = "{0}.{1}.{2}".format(major, minor, patch)
     # Check that version matches
-    if Corrfunc.__version__ != version:
+    if corrfunc.__version__ != version:
         msg = "ERROR: Version mis-match. Python version found = {0} \
-        while C version claims {1}".format(Corrfunc.__version__, version)
+        while C version claims {1}".format(corrfunc.__version__, version)
         raise AssertionError(msg)
 
     # Since arbitrary python can be used even within the Makefile
@@ -367,13 +367,13 @@ class BuildExtSubclass(build_ext):
 
             full_name = '{0}.so'.format(pjoin(ext_dir, ext.name))
             full_build_name = '{0}'.format(self.get_ext_fullpath(ext.name))
-            pkg_sourcedir = '{0}'.format(pjoin(ext_dir, '../../Corrfunc'))
+            pkg_sourcedir = '{0}'.format(pjoin(ext_dir, '../../corrfunc'))
             pkg_in_srcdir = '{0}/{1}.so'.format(pkg_sourcedir, ext.name)
 
             shutil.copyfile(full_name, full_build_name)
 
-            # just copy the newly created library in the Corrfunc module directory.
-            # Installed Corrfunc version will automatically get the extensions
+            # just copy the newly created library in the corrfunc module directory.
+            # Installed corrfunc version will automatically get the extensions
             # os.remove(pkg_in_srcdir)
             # os.symlink('{0}'.format(pjoin('../', full_name)),
             #           pkg_in_srcdir)
@@ -431,7 +431,7 @@ def install_required():
 # Taken from numpy setup.py
 def setup_packages():
     '''
-    Custom setup for Corrfunc package.
+    Custom setup for corrfunc package.
 
     Optional: Set compiler via 'CC=/path/to/compiler' or
               'CC /path/to/compiler' or 'CC = /path/to/compiler'
@@ -508,7 +508,7 @@ def setup_packages():
     min_np_minor = int(common_dict['MIN_NUMPY_MINOR'][0])
 
     # All book-keeping is done.
-    # base_url = "https://github.com/manodeep/Corrfunc"
+    # base_url = "https://github.com/manodeep/corrfunc"
     classifiers = ['Development Status :: 4 - Beta',
                    'Intended Audience :: Developers',
                    'Intended Audience :: Science/Research',

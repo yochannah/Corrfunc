@@ -1,7 +1,7 @@
-Corrfunc package
+corrfunc package
 ================
 
-.. automodule:: Corrfunc
+.. automodule:: corrfunc
     :members:
     :undoc-members:
     :show-inheritance:
@@ -11,48 +11,48 @@ Subpackages
 
 .. toctree::
 
-    Corrfunc.mocks
-    Corrfunc.theory
+    corrfunc.mocks
+    corrfunc.theory
 
 Submodules
 ----------
 
-Corrfunc.call_correlation_functions module
+corrfunc.call_correlation_functions module
 ------------------------------------------
 
-.. automodule:: Corrfunc.call_correlation_functions
+.. automodule:: corrfunc.call_correlation_functions
     :members:
     :undoc-members:
     :show-inheritance:
 
-Corrfunc.call_correlation_functions_mocks module
+corrfunc.call_correlation_functions_mocks module
 ------------------------------------------------
 
-.. automodule:: Corrfunc.call_correlation_functions_mocks
+.. automodule:: corrfunc.call_correlation_functions_mocks
     :members:
     :undoc-members:
     :show-inheritance:
 
-Corrfunc.io module
+corrfunc.io module
 ------------------
 
-.. automodule:: Corrfunc.io
+.. automodule:: corrfunc.io
     :members:
     :undoc-members:
     :show-inheritance:
 
-Corrfunc.tests module
+corrfunc.tests module
 ---------------------
 
-.. automodule:: Corrfunc.tests
+.. automodule:: corrfunc.tests
     :members:
     :undoc-members:
     :show-inheritance:
 
-Corrfunc.utils module
+corrfunc.utils module
 ---------------------
 
-.. automodule:: Corrfunc.utils
+.. automodule:: corrfunc.utils
     :members:
     :undoc-members:
     :show-inheritance:

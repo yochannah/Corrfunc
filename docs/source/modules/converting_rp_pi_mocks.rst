@@ -4,20 +4,20 @@ Calculating the projected correlation function, :math:`wp(rp)`
 ==============================================================
 
 2-D Pair counts can be converted into a :math:`wp(rp)`
-by using the helper function :py:mod:`Corrfunc.utils.convert_rp_pi_counts_to_wp`.
+by using the helper function :py:mod:`corrfunc.utils.convert_rp_pi_counts_to_wp`.
 First, we have to compute the relevant pair counts using the python
-wrapper :py:mod:`Corrfunc.mocks.DDrppi_mocks`
+wrapper :py:mod:`corrfunc.mocks.DDrppi_mocks`
 
 .. code-block:: python
 
           >>> import numpy as np
           >>> from os.path import dirname, abspath, join as pjoin          
-          >>> import Corrfunc
-          >>> from Corrfunc.mocks.DDrppi_mocks import DDrppi_mocks
-          >>> from Corrfunc.io import read_catalog
-          >>> from Corrfunc.utils import convert_rp_pi_counts_to_wp
+          >>> import corrfunc
+          >>> from corrfunc.mocks.DDrppi_mocks import DDrppi_mocks
+          >>> from corrfunc.io import read_catalog
+          >>> from corrfunc.utils import convert_rp_pi_counts_to_wp
 
-          >>> galaxy_catalog=pjoin(dirname(abspath(Corrfunc.__file__)),
+          >>> galaxy_catalog=pjoin(dirname(abspath(corrfunc.__file__)),
           ...                      "../mocks/tests/data", "Mr19_mock_northonly.rdcz.ff")
 
           # Read the supplied galaxies on a periodic box
@@ -25,7 +25,7 @@ wrapper :py:mod:`Corrfunc.mocks.DDrppi_mocks`
           >>> N = len(RA)
 
           # Read the supplied randoms catalog
-          >>> random_catalog=pjoin(dirname(abspath(Corrfunc.__file__)),
+          >>> random_catalog=pjoin(dirname(abspath(corrfunc.__file__)),
           ...                      "../mocks/tests/data", "Mr19_randoms_northonly.rdcz.ff")
           >>> rand_RA, rand_DEC, rand_CZ = read_catalog(random_catalog)
           >>> rand_N = len(rand_RA)
@@ -61,6 +61,6 @@ wrapper :py:mod:`Corrfunc.mocks.DDrppi_mocks`
           ...                                 DD_counts, DR_counts,
           ...                                 DR_counts, RR_counts, nbins, pimax)
 
-See the complete reference here :py:mod:`Corrfunc`.
+See the complete reference here :py:mod:`corrfunc`.
    
                    

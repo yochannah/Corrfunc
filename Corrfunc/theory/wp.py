@@ -4,7 +4,7 @@
 """
 Python wrapper around the C extension for the theoretical projected
 auto-correlation function, wp(rp), in ``theory/wp``. This python
-wrapper is in :py:mod:`Corrfunc.theory.wp`.
+wrapper is in :py:mod:`corrfunc.theory.wp`.
 """
 
 from __future__ import (division, print_function, absolute_import,
@@ -135,10 +135,10 @@ def find_fastest_wp_bin_refs(boxsize, pimax, nthreads, binfile, X, Y, Z,
     >>> from __future__ import print_function
     >>> import numpy as np
     >>> from os.path import dirname, abspath, join as pjoin
-    >>> import Corrfunc
-    >>> from Corrfunc.io import read_catalog
-    >>> from Corrfunc.theory.wp import find_fastest_wp_bin_refs
-    >>> binfile = pjoin(dirname(abspath(Corrfunc.__file__)),
+    >>> import corrfunc
+    >>> from corrfunc.io import read_catalog
+    >>> from corrfunc.theory.wp import find_fastest_wp_bin_refs
+    >>> binfile = pjoin(dirname(abspath(corrfunc.__file__)),
     ...                 "../theory/tests/", "bins")
     >>> X, Y, Z = read_catalog(return_dtype=np.float32)
     >>> boxsize = 420.0
@@ -158,13 +158,13 @@ def find_fastest_wp_bin_refs(boxsize, pimax, nthreads, binfile, X, Y, Z,
 
     """
     try:
-        from Corrfunc._countpairs import countpairs_wp as wp_extn
+        from corrfunc._countpairs import countpairs_wp as wp_extn
     except ImportError:
         msg = "Could not import the C extension for the projected "\
               "correlation function."
         raise ImportError(msg)
 
-    from Corrfunc.utils import translate_isa_string_to_enum,\
+    from corrfunc.utils import translate_isa_string_to_enum,\
         return_file_with_rbins
 
     import itertools
@@ -434,9 +434,9 @@ def wp(boxsize, pimax, nthreads, binfile, X, Y, Z,
     >>> from __future__ import print_function
     >>> import numpy as np
     >>> from os.path import dirname, abspath, join as pjoin
-    >>> import Corrfunc
-    >>> from Corrfunc.theory.wp import wp
-    >>> binfile = pjoin(dirname(abspath(Corrfunc.__file__)),
+    >>> import corrfunc
+    >>> from corrfunc.theory.wp import wp
+    >>> binfile = pjoin(dirname(abspath(corrfunc.__file__)),
     ...                 "../theory/tests/", "bins")
     >>> N = 10000
     >>> boxsize = 420.0
@@ -470,7 +470,7 @@ def wp(boxsize, pimax, nthreads, binfile, X, Y, Z,
     """
 
     try:
-        from Corrfunc._countpairs import countpairs_wp as wp_extn
+        from corrfunc._countpairs import countpairs_wp as wp_extn
     except ImportError:
         msg = "Could not import the C extension for the projected "\
               "correlation function."
@@ -478,7 +478,7 @@ def wp(boxsize, pimax, nthreads, binfile, X, Y, Z,
 
     import numpy as np
     from future.utils import bytes_to_native_str
-    from Corrfunc.utils import translate_isa_string_to_enum,\
+    from corrfunc.utils import translate_isa_string_to_enum,\
         return_file_with_rbins
         
     # Broadcast scalar weights to arrays

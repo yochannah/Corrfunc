@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
-Corrfunc is a set of high-performance routines for
+corrfunc is a set of high-performance routines for
 computing clustering statistics on a distribution of
 points.
 """

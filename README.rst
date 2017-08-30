@@ -15,7 +15,7 @@ Why Should You Use it
 1. **Fast** Theory pair-counting is **7x** faster than ``SciPy cKDTree``, and at least **2x** faster than all existing public codes.
 2. **OpenMP Parallel** All pair-counting codes can be done in parallel (with strong scaling efficiency >~ 95% up to 10 cores)
 3. **Python Extensions** Python extensions allow you to do the compute-heavy bits using C while retaining all of the user-friendliness of python. 
-4. **Weights** All correlation functions now support weights for individual points (in ``master`` branch, upcoming in `v2.0.0 <https://github.com/manodeep/Corrfunc/releases/tag/2.0.0>`_)
+4. **Weights** All correlation functions now support weights for individual points (in ``master`` branch, upcoming in `v2.0.0 <https://github.com/manodeep/corrfunc/releases/tag/2.0.0>`_)
 5. **Modular** The code is written in a modular fashion and is easily extensible to compute arbitrary clustering statistics. 
 6. **Future-proof** As I get access to newer instruction-sets, the codes will get updated to use the latest and greatest CPU features. 
 
@@ -53,7 +53,7 @@ Preferred Install Method
 
 ::
 
-    $ git clone https://github.com/manodeep/Corrfunc/
+    $ git clone https://github.com/manodeep/corrfunc/
     $ make 
     $ make install
     $ python setup.py install (--user)
@@ -78,7 +78,7 @@ Compilation Notes
 Alternate Install Method
 -------------------------
 
-The python package is directly installable via ``pip install Corrfunc``. However, in that case you will lose the ability to recompile the code according to your needs. Installing via `pip` is **not** recommended, please open an install issue on this repo first; doing so helps improve the code-base and saves future users from running into similar install issues. 
+The python package is directly installable via ``pip install corrfunc``. However, in that case you will lose the ability to recompile the code according to your needs. Installing via `pip` is **not** recommended, please open an install issue on this repo first; doing so helps improve the code-base and saves future users from running into similar install issues. 
 
 Installation notes
 ------------------
@@ -92,7 +92,7 @@ While I have tried to ensure that the package compiles and runs out of
 the box, cross-platform compatibility turns out to be incredibly hard.
 If you run into any issues during compilation and you have all of the
 pre-requisites, please see the `FAQ <FAQ>`__ or `email
-the Corrfunc mailing list <mailto:corrfunc@googlegroups.com>`__. Also, feel free to create a new issue
+the corrfunc mailing list <mailto:corrfunc@googlegroups.com>`__. Also, feel free to create a new issue
 with the ``Installation`` label.
 
 Clustering Measures on a Cosmological box
@@ -199,7 +199,7 @@ Mocks (in ``mocks.options``)
    accurate implementation is already present in that file. Please check that the loss of 
    precision is not important for your use-case. 
 
-8. ``COMOVING_DIST`` -- Currently there is no support in ``Corrfunc`` for different cosmologies. However, for the
+8. ``COMOVING_DIST`` -- Currently there is no support in ``corrfunc`` for different cosmologies. However, for the
    mocks routines like, ``DDrppi_mocks`` and ``vpf_mocks``, cosmology parameters are required to convert between
    redshift and co-moving distance. Both ``DDrppi_mocks`` and ``vpf_mocks`` expects to receive a ``redshift`` array 
    as input; however, with this option enabled, the ``redshift`` array will be assumed to contain already converted
@@ -240,8 +240,8 @@ Calling from Python
 -------------------
 
 If all went well, the codes can be directly called from ``python``.
-Please see ``Corrfunc/call_correlation_functions.py`` and
-``Corrfunc/call_correlation_functions_mocks.py`` for examples on how to
+Please see ``corrfunc/call_correlation_functions.py`` and
+``corrfunc/call_correlation_functions_mocks.py`` for examples on how to
 use the C extensions directly. Here are a few examples:
 
 .. code:: python
@@ -249,8 +249,8 @@ use the C extensions directly. Here are a few examples:
     from __future__ import print_function
     import os.path as path
     import numpy as np
-    import Corrfunc
-    from Corrfunc.theory import wp
+    import corrfunc
+    from corrfunc.theory import wp
 
     # Setup the problem for wp
     boxsize = 500.0
@@ -310,7 +310,7 @@ Common Code options for both Mocks and Cosmological Boxes
 Author & Maintainers 
 =====================
 
-Corrfunc was designed by Manodeep Sinha and is currently maintained by
+corrfunc was designed by Manodeep Sinha and is currently maintained by
 `Lehman Garrison <https://github.com/lgarrison>`_ and `Manodeep Sinha <https://github.com/manodeep>`_
 
 Citing
@@ -323,7 +323,7 @@ for the code is
 
       @misc{manodeep_sinha_2016_61511,
          author       = {Manodeep Sinha},
-         title        = {Corrfunc: Corrfunc-2.0.0},
+         title        = {corrfunc: corrfunc-2.0.0},
          month        = sep,
          year         = 2016,
          doi          = {10.5281/zenodo.61511},
@@ -339,45 +339,45 @@ mailing list: https://groups.google.com/forum/#!forum/corrfunc
 LICENSE
 =======
 
-Corrfunc is released under the MIT license. Basically, do what you want
+corrfunc is released under the MIT license. Basically, do what you want
 with the code including using it in commercial application.
 
 Project URL
 ===========
 
--  website (https://manodeep.github.io/Corrfunc/)
+-  website (https://manodeep.github.io/corrfunc/)
 -  documentation (http://corrfunc.rtfd.io/)   
--  version control (https://github.com/manodeep/Corrfunc)
+-  version control (https://github.com/manodeep/corrfunc)
 
-.. |Release| image:: https://img.shields.io/github/release/manodeep/Corrfunc.svg
-   :target: https://github.com/manodeep/Corrfunc/releases/latest
+.. |Release| image:: https://img.shields.io/github/release/manodeep/corrfunc.svg
+   :target: https://github.com/manodeep/corrfunc/releases/latest
    :alt: Latest Release
 
-.. |PyPI| image:: https://img.shields.io/pypi/v/Corrfunc.svg
-   :target: https://pypi.python.org/pypi/Corrfunc
+.. |PyPI| image:: https://img.shields.io/pypi/v/corrfunc.svg
+   :target: https://pypi.python.org/pypi/corrfunc
    :alt: PyPI Release
 .. |MIT licensed| image:: https://img.shields.io/badge/license-MIT-blue.svg
-   :target: https://raw.githubusercontent.com/manodeep/Corrfunc/master/LICENSE
+   :target: https://raw.githubusercontent.com/manodeep/corrfunc/master/LICENSE
    :alt: MIT License
-.. |DOI| image:: https://zenodo.org/badge/19184/manodeep/Corrfunc.svg
-   :target: https://zenodo.org/badge/latestdoi/19184/manodeep/Corrfunc
+.. |DOI| image:: https://zenodo.org/badge/19184/manodeep/corrfunc.svg
+   :target: https://zenodo.org/badge/latestdoi/19184/manodeep/corrfunc
    :alt: Zenodo DOI
 .. |ASCL| image:: https://img.shields.io/badge/ascl-1703.003-blue.svg?colorB=262255
    :target: http://ascl.net/1703.003
    :alt: ascl:1703.003
-.. |Travis Build| image:: https://travis-ci.org/manodeep/Corrfunc.svg?branch=master
-   :target: https://travis-ci.org/manodeep/Corrfunc
+.. |Travis Build| image:: https://travis-ci.org/manodeep/corrfunc.svg?branch=master
+   :target: https://travis-ci.org/manodeep/corrfunc
    :alt: Build Status
-.. |Issues| image:: https://img.shields.io/github/issues/manodeep/Corrfunc.svg
-   :target: https://github.com/manodeep/Corrfunc/issues
+.. |Issues| image:: https://img.shields.io/github/issues/manodeep/corrfunc.svg
+   :target: https://github.com/manodeep/corrfunc/issues
    :alt: Open Issues
 .. |RTD| image:: https://readthedocs.org/projects/corrfunc/badge/?version=master
    :target: http://corrfunc.readthedocs.io/en/master/?badge=master
    :alt: Documentation Status
-.. |Landscape| image:: https://landscape.io/github/manodeep/Corrfunc/master/landscape.svg?style=flat
-   :target: https://landscape.io/github/manodeep/Corrfunc/master
+.. |Landscape| image:: https://landscape.io/github/manodeep/corrfunc/master/landscape.svg?style=flat
+   :target: https://landscape.io/github/manodeep/corrfunc/master
    :alt: Code Health
 
-.. |Gitter| image:: https://badges.gitter.im/Corrfunc/Lobby.svg
-   :alt: Join the chat at https://gitter.im/Corrfunc/Lobby
-   :target: https://gitter.im/Corrfunc/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
+.. |Gitter| image:: https://badges.gitter.im/corrfunc/Lobby.svg
+   :alt: Join the chat at https://gitter.im/corrfunc/Lobby
+   :target: https://gitter.im/corrfunc/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge

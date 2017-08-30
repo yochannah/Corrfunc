@@ -32,12 +32,12 @@ However, using :math:`\bar\rho = \frac{N}{L^3}` is only correct for continuous f
 
 See `this notebook <http://nbviewer.jupyter.org/gist/lgarrison/1efabe4430429996733a9d29397423d2>`_ for an empirical demonstration of this effect; specifically, that computing the density with :math:`N-1` is correct, and that using :math:`N` introduces bias of order :math:`\frac{1}{N}` into the estimator.  This is a tiny correction for large :math:`N` problems, but important for small :math:`N`.
 
-Any ``Corrfunc`` function that returns a clustering statistic (not just raw pair counts) implements this correction. 
-Currently, this includes :py:mod:`Corrfunc.theory.xi` and :py:mod:`Corrfunc.theory.wp`.
+Any ``corrfunc`` function that returns a clustering statistic (not just raw pair counts) implements this correction. 
+Currently, this includes :py:mod:`corrfunc.theory.xi` and :py:mod:`corrfunc.theory.wp`.
 
 Cross-correlations of two different particle sets don't suffer from this problem; the particle you're sitting on is never part of the set of particles under consideration for pair-making.
 
-``Corrfunc`` also allows bins of zero separation, in which "self-pairs" are included in the pair counting.  :math:`\RR_i` must reflect this by simply adding :math:`N` to any such bin.
+``corrfunc`` also allows bins of zero separation, in which "self-pairs" are included in the pair counting.  :math:`\RR_i` must reflect this by simply adding :math:`N` to any such bin.
 
 .. _weighted_rr:
 
@@ -70,5 +70,5 @@ the particles uniformly but preserve their individual weights, we would find
     &= \left(W^2 - \sum_{j=1}^N w_j^2\right) \frac{V_i}{L^3}.
     \end{align}
 
-This is not what we use in ``Corrfunc``, but this should help illuminate some of the considerations that
+This is not what we use in ``corrfunc``, but this should help illuminate some of the considerations that
 go into defining the "unclustered" case when writing a custom weight function (see :ref:`custom_weighting`).

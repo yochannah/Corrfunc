@@ -1,9 +1,9 @@
 /* File: wp.c */
 /*
-  This file is a part of the Corrfunc package
+  This file is a part of the corrfunc package
   Copyright (C) 2015-- Manodeep Sinha (manodeep@gmail.com)
   License: MIT LICENSE. See LICENSE file under the top-level
-  directory at https://github.com/manodeep/Corrfunc/
+  directory at https://github.com/manodeep/corrfunc/
 */
 
 /* PROGRAM wp
@@ -57,7 +57,7 @@ int main(int argc, char *argv[])
     DOUBLE *x1=NULL,*y1=NULL,*z1=NULL,*weights1[MAX_NUM_WEIGHTS]={NULL};
 
 
-    /*---Corrfunc-variables----------------*/
+    /*---corrfunc-variables----------------*/
 #if !(defined(USE_OMP) && defined(_OPENMP))
     const int nthreads = 1;
     const char argnames[][30]={"boxsize","file","format","binfile","pimax"};

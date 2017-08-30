@@ -5,7 +5,7 @@
 Python wrapper around the C extension for the theoretical 3-D
 real-space correlation function, :math:`\\xi(r)`. Corresponding
 C routines are in ``theory/xi/``, python interface is 
-:py:mod:`Corrfunc.theory.xi`.
+:py:mod:`corrfunc.theory.xi`.
 """
 
 from __future__ import (division, print_function, absolute_import,
@@ -138,9 +138,9 @@ def xi(boxsize, nthreads, binfile, X, Y, Z,
     >>> from __future__ import print_function
     >>> import numpy as np
     >>> from os.path import dirname, abspath, join as pjoin
-    >>> import Corrfunc
-    >>> from Corrfunc.theory.xi import xi
-    >>> binfile = pjoin(dirname(abspath(Corrfunc.__file__)),
+    >>> import corrfunc
+    >>> from corrfunc.theory.xi import xi
+    >>> binfile = pjoin(dirname(abspath(corrfunc.__file__)),
     ...                 "../theory/tests/", "bins")
     >>> N = 100000
     >>> boxsize = 420.0
@@ -174,7 +174,7 @@ def xi(boxsize, nthreads, binfile, X, Y, Z,
     """
 
     try:
-        from Corrfunc._countpairs import countpairs_xi as xi_extn
+        from corrfunc._countpairs import countpairs_xi as xi_extn
     except ImportError:
         msg = "Could not import the C extension for the projected "\
               "correlation function."
@@ -182,7 +182,7 @@ def xi(boxsize, nthreads, binfile, X, Y, Z,
 
     import numpy as np
     from future.utils import bytes_to_native_str
-    from Corrfunc.utils import translate_isa_string_to_enum,\
+    from corrfunc.utils import translate_isa_string_to_enum,\
         return_file_with_rbins
         
     # Broadcast scalar weights to arrays

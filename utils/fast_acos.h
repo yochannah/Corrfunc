@@ -3,8 +3,8 @@
   This file is covered by the original Boost License
   for http://www.geometrictools.com/.
 
-  Distributed as part of Corrfunc package
-  at https://github.com/manodeep/Corrfunc/
+  Distributed as part of corrfunc package
+  at https://github.com/manodeep/corrfunc/
 */
 
 #pragma once

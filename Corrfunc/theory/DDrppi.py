@@ -3,7 +3,7 @@
 
 """
 Python wrapper around the C extension for the pair counter in
-``theory/DDrppi/``. This wrapper is in :py:mod:`Corrfunc.theory.DDrppi`
+``theory/DDrppi/``. This wrapper is in :py:mod:`corrfunc.theory.DDrppi`
 """
 
 from __future__ import (division, print_function, absolute_import,
@@ -32,8 +32,8 @@ def DDrppi(autocorr, nthreads, pimax, binfile, X1, Y1, Z1, weights1=None,
 
     .. note:: that this module only returns pair counts and not the actual
        correlation function :math:`\\xi(r_p, \pi)` or :math:`wp(r_p)`. See the
-       utilities :py:mod:`Corrfunc.utils.convert_3d_counts_to_cf` and
-       :py:mod:`Corrfunc.utils.convert_rp_pi_counts_to_wp` for computing 
+       utilities :py:mod:`corrfunc.utils.convert_3d_counts_to_cf` and
+       :py:mod:`corrfunc.utils.convert_rp_pi_counts_to_wp` for computing 
        :math:`\\xi(r_p, \pi)` and :math:`wp(r_p)` respectively from the 
        pair counts.
 
@@ -163,9 +163,9 @@ def DDrppi(autocorr, nthreads, pimax, binfile, X1, Y1, Z1, weights1=None,
     >>> from __future__ import print_function
     >>> import numpy as np
     >>> from os.path import dirname, abspath, join as pjoin
-    >>> import Corrfunc
-    >>> from Corrfunc.theory.DDrppi import DDrppi
-    >>> binfile = pjoin(dirname(abspath(Corrfunc.__file__)),
+    >>> import corrfunc
+    >>> from corrfunc.theory.DDrppi import DDrppi
+    >>> binfile = pjoin(dirname(abspath(corrfunc.__file__)),
     ...                 "../theory/tests/", "bins")
     >>> N = 10000
     >>> boxsize = 420.0
@@ -228,14 +228,14 @@ def DDrppi(autocorr, nthreads, pimax, binfile, X1, Y1, Z1, weights1=None,
     
     """
     try:
-        from Corrfunc._countpairs import countpairs_rp_pi as DDrppi_extn
+        from corrfunc._countpairs import countpairs_rp_pi as DDrppi_extn
     except ImportError:
         msg = "Could not import the C extension for the 3-D "\
               "real-space pair counter."
         raise ImportError(msg)
 
     import numpy as np
-    from Corrfunc.utils import translate_isa_string_to_enum,\
+    from corrfunc.utils import translate_isa_string_to_enum,\
         return_file_with_rbins
     from future.utils import bytes_to_native_str
     

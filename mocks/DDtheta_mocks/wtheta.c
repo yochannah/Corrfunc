@@ -1,9 +1,9 @@
 /* File: wtheta.c */
 /*
-  This file is a part of the Corrfunc package
+  This file is a part of the corrfunc package
   Copyright (C) 2015-- Manodeep Sinha (manodeep@gmail.com)
   License: MIT LICENSE. See LICENSE file under the top-level
-  directory at https://github.com/manodeep/Corrfunc/
+  directory at https://github.com/manodeep/corrfunc/
 */
 
 /* PROGRAM wtheta
@@ -44,7 +44,7 @@ int main(int argc, char **argv)
     FILE *fpD1D2,*fpD1R2,*fpD2R1,*fpR1R2 ;
     /*---Data-variables--------------------*/
     double *thetaavg,*D1D2,*D1R2,*D2R1,*R1R2 ;
-    /*---Corrfunc-variables----------------*/
+    /*---corrfunc-variables----------------*/
     double fN1,fN2,*wtheta ;
     double *rmin,*rmax;
 

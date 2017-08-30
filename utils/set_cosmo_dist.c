@@ -1,9 +1,9 @@
 /* File: set_cosmo_dist.c */
 /*
-  This file is a part of the Corrfunc package
+  This file is a part of the corrfunc package
   Copyright (C) 2015-- Manodeep Sinha (manodeep@gmail.com)
   License: MIT LICENSE. See LICENSE file under the top-level
-  directory at https://github.com/manodeep/Corrfunc/
+  directory at https://github.com/manodeep/corrfunc/
 */
 
 /* function set_cosmo_dist (modelled after cosmodist.c)

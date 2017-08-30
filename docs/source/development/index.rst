@@ -5,8 +5,8 @@ Developer documentation
 =======================
 
 The developer documentation contains guidlines for how to 
-stay up-to-date on Corrfunc development, submit bug reports and 
-contribute to the Corrfunc code base. 
+stay up-to-date on corrfunc development, submit bug reports and 
+contribute to the corrfunc code base. 
 
 
 .. toctree::

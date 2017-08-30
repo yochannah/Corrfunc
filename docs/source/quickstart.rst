@@ -1,10 +1,10 @@
 .. _quickstart:
 
 ******************************
-Getting started with Corrfunc
+Getting started with corrfunc
 ******************************
 
-Corrfunc is a set of high-performance routines to measure clustering
+corrfunc is a set of high-performance routines to measure clustering
 statistics. The codes are divided conceptually into two different segments:
 
 * theory - calculates clustering statistics on **simulation** volumes. Input
@@ -22,13 +22,13 @@ and its dependencies set up on your machine.
 
 If you want to compute correlation functions and have installed the python
 extensions, then see :ref:`function_usage_examples` for typical
-tasks. Otherwise, read on for the various interfaces available within Corrfunc.
+tasks. Otherwise, read on for the various interfaces available within corrfunc.
 
 
-Computing Clustering Statistics with Corrfunc
+Computing Clustering Statistics with corrfunc
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   
-Corrfunc supports three separate mechanisms to compute the clustering statistics:
+corrfunc supports three separate mechanisms to compute the clustering statistics:
 
 * **Via python** (if you have ``python`` and ``numpy`` installed)
 
@@ -58,7 +58,7 @@ Corrfunc supports three separate mechanisms to compute the clustering statistics
 
   See :ref:`commandline-interface` for details on how to use the command-line executables.
 
-Available Corrfunc interfaces 
+Available corrfunc interfaces 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   
 .. toctree::

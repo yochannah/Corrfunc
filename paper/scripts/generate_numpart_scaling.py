@@ -3,9 +3,9 @@
 from __future__ import print_function
 import numpy as np
 
-import Corrfunc
+import corrfunc
 
-from Corrfunc.io import read_catalog
+from corrfunc.io import read_catalog
 from os.path import join as pjoin, abspath, dirname
 import time
 import sys
@@ -73,7 +73,7 @@ def benchmark_theory_threads_all(numpart_frac=[0.001, 0.005, 0.01, 0.05, 0.1, 0.
                                  keys=None,
                                  isa=None):
 
-    from Corrfunc.theory import DD, DDrppi, wp, xi
+    from corrfunc.theory import DD, DDrppi, wp, xi
     allkeys = [#'DD', 'DDrppi',
                'wp', 'xi']
     allisa = ['avx', 'sse42', 'fallback']
@@ -247,7 +247,7 @@ def benchmark_mocks_threads_all(numpart_frac=[0.001, 0.005, 0.01, 0.05, 0.1, 0.2
                                 nrepeats=3,
                                 keys=None,
                                 isa=None):
-    from Corrfunc.mocks import DDrppi_mocks, DDtheta_mocks
+    from corrfunc.mocks import DDrppi_mocks, DDtheta_mocks
     allkeys = [#'DDrppi (DD)',
                #'DDtheta (DD)',
                'DDrppi (DR)',
@@ -273,11 +273,11 @@ def benchmark_mocks_threads_all(numpart_frac=[0.001, 0.005, 0.01, 0.05, 0.1, 0.2
                 raise ValueError(msg)
 
     print("Benchmarking mocks routines = {0} with isa = {1}".format(keys, isa))
-    mocks_file = pjoin(dirname(abspath(Corrfunc.__file__)),
+    mocks_file = pjoin(dirname(abspath(corrfunc.__file__)),
                        "../mocks/tests/data", "Mr19_mock_northonly.rdcz.ff")
     allra, alldec, allcz = read_catalog(mocks_file)
 
-    rand_file = pjoin(dirname(abspath(Corrfunc.__file__)),
+    rand_file = pjoin(dirname(abspath(corrfunc.__file__)),
                       "../mocks/tests/data", "Mr19_randoms_northonly.rdcz.ff")
     allrand_ra, allrand_dec, allrand_cz = read_catalog(rand_file)
     cosmology = 1

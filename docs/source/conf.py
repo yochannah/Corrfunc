@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Corrfunc documentation build configuration file, created by
+# corrfunc documentation build configuration file, created by
 # sphinx-quickstart on Sun Feb 28 09:25:20 2016.
 #
 # This file is execfile()d with the current directory set to its
@@ -77,7 +77,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Corrfunc'
+project = u'corrfunc'
 __import__(project)
 package = sys.modules[project]
 author = package.__author__
@@ -238,7 +238,7 @@ html_show_copyright = True
 #html_search_scorer = 'scorer.js'
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'Corrfuncdoc'
+htmlhelp_basename = 'corrfuncdoc'
 
 # -- Options for LaTeX output ---------------------------------------------
 
@@ -300,8 +300,8 @@ man_pages = [(master_doc, project.lower(), project + u' Documentation',
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'Corrfunc', u'Corrfunc Documentation',
-     author, 'Corrfunc', 'One line description of project.',
+    (master_doc, 'corrfunc', u'corrfunc Documentation',
+     author, 'corrfunc', 'One line description of project.',
      'Miscellaneous'),
 ]
 

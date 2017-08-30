@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 '''
-A script to do timing tests of different codes with Corrfunc.
+A script to do timing tests of different codes with corrfunc.
 In each case, we endeavor to perform the same calculations
-with Corrfunc that each code does internally, thus producing
+with corrfunc that each code does internally, thus producing
 a fair comparison.  We also check that the results of each code
-match those of Corrfunc.
+match those of corrfunc.
 '''
 
 import time
@@ -13,7 +13,7 @@ from collections import defaultdict
 import numpy as np
 import os
 import os.path as path
-import Corrfunc
+import corrfunc
 import subprocess32
 import re
 
@@ -46,7 +46,7 @@ def test_scipy_ckdtree(points, bins):
     # cKDTree returns all pairs <= r, not pairs in bins.  Include a bin that goes all the way to r~0.
     bins = [0.] + list(bins)
     cf_t = time.time()
-    cf_results = Corrfunc.theory.DD(autocorr=False, nthreads=1, binfile=bins,
+    cf_results = corrfunc.theory.DD(autocorr=False, nthreads=1, binfile=bins,
                                     X1=points[:,0], Y1=points[:,1], Z1=points[:,2],
                                     X2=points[:,0], Y2=points[:,1], Z2=points[:,2],
                                     periodic=False, output_ravg=False, verbose=False)
@@ -69,7 +69,7 @@ def test_sklearn_kdtree(points, bins):
     # scikit-learn returns all pairs <= r, not pairs in bins.  Include a bin that goes all the way to r~0.
     bins = [0.] + list(bins)
     cf_t = time.time()
-    cf_results = Corrfunc.theory.DD(autocorr=False, nthreads=1, binfile=bins,
+    cf_results = corrfunc.theory.DD(autocorr=False, nthreads=1, binfile=bins,
                                     X1=points[:,0], Y1=points[:,1], Z1=points[:,2],
                                     X2=points[:,0], Y2=points[:,1], Z2=points[:,2],
                                     periodic=False, output_ravg=False, verbose=False)
@@ -92,7 +92,7 @@ def test_kdcount(points, bins, nthreads=1):
     counts = counts.sum1
     
     cf_t = time.time()
-    cf_results = Corrfunc.theory.DD(autocorr=False, nthreads=nthreads, binfile=bins,
+    cf_results = corrfunc.theory.DD(autocorr=False, nthreads=nthreads, binfile=bins,
                                     X1=points[:,0], Y1=points[:,1], Z1=points[:,2],
                                     X2=points[:,0], Y2=points[:,1], Z2=points[:,2],
                                     periodic=False, output_ravg=False, verbose=False)
@@ -114,7 +114,7 @@ def test_halotools(points, bins, nthreads=1):
     paircounts = np.round(xi + 1)  # could be affected by roundoff error
     
     cf_t = time.time()
-    cf_results = Corrfunc.theory.DD(autocorr=False, nthreads=nthreads, binfile=bins,
+    cf_results = corrfunc.theory.DD(autocorr=False, nthreads=nthreads, binfile=bins,
                                     X1=points[:,0], Y1=points[:,1], Z1=points[:,2],
                                     X2=points[:,0], Y2=points[:,1], Z2=points[:,2],
                                     periodic=False, output_ravg=False, verbose=False)
@@ -134,10 +134,10 @@ def test_treecorr(points, bins, nthreads=1):
     t = time.time()
     nn.process(cat)
     t = time.time() - t
-    tc_npairs = nn.npairs*2  # Corrfunc gives doubled counts
+    tc_npairs = nn.npairs*2  # corrfunc gives doubled counts
     
     cf_t = time.time()
-    cf_results = Corrfunc.theory.DD(autocorr=True, nthreads=nthreads, binfile=bins,
+    cf_results = corrfunc.theory.DD(autocorr=True, nthreads=nthreads, binfile=bins,
                                     X1=points[:,0], Y1=points[:,1], Z1=points[:,2],
                                     #X2=points[:,0], Y2=points[:,1], Z2=points[:,2],
                                     periodic=False, output_ravg=True, verbose=False)
@@ -171,7 +171,7 @@ def test_cute_box(points, bins, nthreads=1):
     t = float(matches.group(1))/1000.
     
     cf_t = time.time()
-    cf_results = Corrfunc.theory.DD(autocorr=True, nthreads=nthreads, binfile=bins,
+    cf_results = corrfunc.theory.DD(autocorr=True, nthreads=nthreads, binfile=bins,
                                     X1=points[:,0], Y1=points[:,1], Z1=points[:,2],
                                     periodic=True, output_ravg=False, verbose=False,
                                     #xbin_refine_factor=7, ybin_refine_factor=7, zbin_refine_factor=1, max_cells_per_dim=1000,
@@ -212,7 +212,7 @@ def test_mlpack(points, bins):
             mlpack_pairs += neighbors
     
     cf_t = time.time()
-    cf_results = Corrfunc.theory.DD(autocorr=False, nthreads=1, binfile=bins,
+    cf_results = corrfunc.theory.DD(autocorr=False, nthreads=1, binfile=bins,
                                     X1=points[:,0], Y1=points[:,1], Z1=points[:,2],
                                     X2=points[:,0], Y2=points[:,1], Z2=points[:,2],
                                     periodic=False, output_ravg=False, verbose=False)
@@ -241,15 +241,15 @@ def test_swot(points, bins, nthreads=1):
     swot_npairs = swot_results[:,6]
     
     cf_t = time.time()
-    cf_DD = Corrfunc.theory.DD(autocorr=True, nthreads=nthreads, binfile=bins,
+    cf_DD = corrfunc.theory.DD(autocorr=True, nthreads=nthreads, binfile=bins,
                                X1=points[:,0], Y1=points[:,1], Z1=points[:,2],
                                X2=points[:,0], Y2=points[:,1], Z2=points[:,2],
                                periodic=False, output_ravg=True, verbose=False)
-    cf_DR = Corrfunc.theory.DD(autocorr=False, nthreads=nthreads, binfile=bins,
+    cf_DR = corrfunc.theory.DD(autocorr=False, nthreads=nthreads, binfile=bins,
                                X1=points[:,0], Y1=points[:,1], Z1=points[:,2],
                                X2=points[:,0], Y2=points[:,1], Z2=points[:,2],
                                periodic=False, output_ravg=True, verbose=False)
-    cf_RR = Corrfunc.theory.DD(autocorr=True, nthreads=nthreads, binfile=bins,
+    cf_RR = corrfunc.theory.DD(autocorr=True, nthreads=nthreads, binfile=bins,
                                X1=points[:,0], Y1=points[:,1], Z1=points[:,2],
                                X2=points[:,0], Y2=points[:,1], Z2=points[:,2],
                                periodic=False, output_ravg=True, verbose=False)
@@ -266,7 +266,7 @@ def test_from_registry(reg, rmin=1, rmax=90., nbin=19, nthreads=max_threads, nre
                        np_fracs=[0.01, 0.03, 0.1, 0.25, 0.5, 1.0]
                        #np_fracs=[0.01, 0.03, 0.1]
                       ):
-    #points = Corrfunc.io.read_catalog()
+    #points = corrfunc.io.read_catalog()
     #points = np.array(points).T  #.copy()  # shape (N,3)
     points = np.loadtxt('halos_emulator_1100box_Neff3_00.txt')
     assert (points >= 0).all() and (points < 1100.).all()
@@ -326,8 +326,8 @@ def plot_results(timings_fn):
     
     fig, ax = plt.subplots(1,1, figsize=(5,4))
     ax.set_xlabel(r'$N_\mathrm{particles}$')
-    ax.set_ylabel(r'Corrfunc speed-up: $t_\mathrm{other}/t_\mathrm{Corrfunc}$')
-    #ax.set_ylabel(r'Corrfunc time [sec]')
+    ax.set_ylabel(r'corrfunc speed-up: $t_\mathrm{other}/t_\mathrm{corrfunc}$')
+    #ax.set_ylabel(r'corrfunc time [sec]')
     ax.set_xscale('log')
     ax.set_yscale('log')
     
@@ -339,13 +339,13 @@ def plot_results(timings_fn):
     ax.axhline(1., linestyle=':', c='k')
     if parallel:
         ax.legend(loc='upper left')
-        ax.annotate('Corrfunc faster', xy=(4e6, 1.1), horizontalalignment='right', verticalalignment='bottom')
-        ax.annotate('Corrfunc slower', xy=(4e6, 0.9), horizontalalignment='right', verticalalignment='top')
+        ax.annotate('corrfunc faster', xy=(4e6, 1.1), horizontalalignment='right', verticalalignment='bottom')
+        ax.annotate('corrfunc slower', xy=(4e6, 0.9), horizontalalignment='right', verticalalignment='top')
     else:
         ax.legend(loc=(.6,.13))
         ax.set_ylim(top=1e1)
-        ax.annotate('Corrfunc faster', xy=(1e5, 1.05), horizontalalignment='left', verticalalignment='bottom')
-        ax.annotate('Corrfunc slower', xy=(1e5, 0.95), horizontalalignment='left', verticalalignment='top')
+        ax.annotate('corrfunc faster', xy=(1e5, 1.05), horizontalalignment='left', verticalalignment='bottom')
+        ax.annotate('corrfunc slower', xy=(1e5, 0.95), horizontalalignment='left', verticalalignment='top')
     
     fig_fn = '{}.pdf'.format('.'.join(path.basename(timings_fn).split('.')[:-1]))
     fig.tight_layout()

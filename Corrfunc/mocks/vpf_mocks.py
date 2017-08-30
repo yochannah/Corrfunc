@@ -4,7 +4,7 @@
 """
 Python wrapper around the C extension for the counts-in-cells
 for positions on the sky. Corresponding C codes are in ``mocks/vpf_mocks/``
-while the python wrapper is in :py:mod:`Corrfunc.mocks.vpf_mocks`
+while the python wrapper is in :py:mod:`corrfunc.mocks.vpf_mocks`
 """
 
 from __future__ import (division, print_function, absolute_import,
@@ -162,7 +162,7 @@ def vpf_mocks(rmax, nbins, nspheres, numpN,
     is_comoving_dist: boolean (default false)
        Boolean flag to indicate that ``cz`` values have already been
        converted into co-moving distances. This flag allows arbitrary
-       cosmologies to be used in ``Corrfunc``.
+       cosmologies to be used in ``corrfunc``.
 
     (xyz)bin_refine_factor: integer, default is (1,1,1); typically within [1-3]
        Controls the refinement on the cell sizes. Can have up to a 20% impact
@@ -223,8 +223,8 @@ def vpf_mocks(rmax, nbins, nspheres, numpN,
     >>> import math
     >>> from os.path import dirname, abspath, join as pjoin
     >>> import numpy as np
-    >>> import Corrfunc
-    >>> from Corrfunc.mocks.vpf_mocks import vpf_mocks
+    >>> import corrfunc
+    >>> from corrfunc.mocks.vpf_mocks import vpf_mocks
     >>> rmax = 10.0
     >>> nbins = 10
     >>> numbins_to_print = nbins
@@ -232,7 +232,7 @@ def vpf_mocks(rmax, nbins, nspheres, numpN,
     >>> numpN = 6
     >>> threshold_ngb = 1  # does not matter since we have the centers
     >>> cosmology = 1  # LasDamas cosmology
-    >>> centers_file = pjoin(dirname(abspath(Corrfunc.__file__)),
+    >>> centers_file = pjoin(dirname(abspath(corrfunc.__file__)),
     ...                      "../mocks/tests/data/",
     ...                      "Mr19_centers_xyz_forVPF_rmax_10Mpc.txt")
     >>> N = 1000000
@@ -275,7 +275,7 @@ def vpf_mocks(rmax, nbins, nspheres, numpN,
     """
 
     try:
-        from Corrfunc._countpairs_mocks import countspheres_vpf_mocks\
+        from corrfunc._countpairs_mocks import countspheres_vpf_mocks\
             as vpf_extn
     except ImportError:
         msg = "Could not import the C extension for the Counts-in-Cells "\
@@ -284,7 +284,7 @@ def vpf_mocks(rmax, nbins, nspheres, numpN,
 
     import numpy as np
     from future.utils import bytes_to_native_str
-    from Corrfunc.utils import translate_isa_string_to_enum
+    from corrfunc.utils import translate_isa_string_to_enum
 
     integer_isa = translate_isa_string_to_enum(isa)
     extn_results, api_time = vpf_extn(rmax, nbins, nspheres, numpN,

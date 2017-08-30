@@ -4,7 +4,7 @@
 """
 Python wrapper around the C extension for the pair counter in
 ``mocks/DDrppi_mocks/``. This python wrapper is 
-:py:mod:`Corrfunc.mocks.DDrppi_mocks`
+:py:mod:`corrfunc.mocks.DDrppi_mocks`
 """
 
 from __future__ import (division, print_function, absolute_import,
@@ -41,8 +41,8 @@ def DDrppi_mocks(autocorr, cosmology, nthreads, pimax, binfile,
 
     .. note:: that this module only returns pair counts and not the actual
        correlation function :math:`\\xi(r_p, \pi)` or :math:`wp(r_p)`. See the
-       utilities :py:mod:`Corrfunc.utils.convert_3d_counts_to_cf` and
-       :py:mod:`Corrfunc.utils.convert_rp_pi_counts_to_wp` for computing 
+       utilities :py:mod:`corrfunc.utils.convert_3d_counts_to_cf` and
+       :py:mod:`corrfunc.utils.convert_rp_pi_counts_to_wp` for computing 
        :math:`\\xi(r_p, \pi)` and :math:`wp(r_p)` respectively from the 
        pair counts.
 
@@ -159,7 +159,7 @@ def DDrppi_mocks(autocorr, cosmology, nthreads, pimax, binfile,
     is_comoving_dist: boolean (default false)
         Boolean flag to indicate that ``cz`` values have already been
         converted into co-moving distances. This flag allows arbitrary
-        cosmologies to be used in ``Corrfunc``.
+        cosmologies to be used in ``corrfunc``.
 
     verbose: boolean (default false)
         Boolean flag to control output of informational messages
@@ -234,10 +234,10 @@ def DDrppi_mocks(autocorr, cosmology, nthreads, pimax, binfile,
     >>> from __future__ import print_function
     >>> import numpy as np
     >>> from os.path import dirname, abspath, join as pjoin
-    >>> import Corrfunc
-    >>> from Corrfunc.mocks.DDrppi_mocks import DDrppi_mocks
+    >>> import corrfunc
+    >>> from corrfunc.mocks.DDrppi_mocks import DDrppi_mocks
     >>> import math
-    >>> binfile = pjoin(dirname(abspath(Corrfunc.__file__)),
+    >>> binfile = pjoin(dirname(abspath(corrfunc.__file__)),
     ...                 "../mocks/tests/", "bins")
     >>> N = 100000
     >>> boxsize = 420.0
@@ -310,7 +310,7 @@ def DDrppi_mocks(autocorr, cosmology, nthreads, pimax, binfile,
 
     """
     try:
-        from Corrfunc._countpairs_mocks import countpairs_rp_pi_mocks as\
+        from corrfunc._countpairs_mocks import countpairs_rp_pi_mocks as\
             DDrppi_extn
     except ImportError:
         msg = "Could not import the C extension for the on-sky"\
@@ -318,7 +318,7 @@ def DDrppi_mocks(autocorr, cosmology, nthreads, pimax, binfile,
         raise ImportError(msg)
 
     import numpy as np
-    from Corrfunc.utils import translate_isa_string_to_enum, fix_ra_dec,\
+    from corrfunc.utils import translate_isa_string_to_enum, fix_ra_dec,\
         return_file_with_rbins
     from future.utils import bytes_to_native_str
     

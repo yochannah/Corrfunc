@@ -1,9 +1,9 @@
 /* File: DDrppi.c */
 /*
-  This file is a part of the Corrfunc package
+  This file is a part of the corrfunc package
   Copyright (C) 2015-- Manodeep Sinha (manodeep@gmail.com)
   License: MIT LICENSE. See LICENSE file under the top-level
-  directory at https://github.com/manodeep/Corrfunc/
+  directory at https://github.com/manodeep/corrfunc/
 */
 
 /* PROGRAM DDrppi
@@ -63,7 +63,7 @@ int main(int argc, char *argv[])
     DOUBLE *x2=NULL,*y2=NULL,*z2=NULL,*weights2[MAX_NUM_WEIGHTS]={NULL};//will point to x1/y1/z1 in case of auto-corr
 
     int nthreads=1;
-    /*---Corrfunc-variables----------------*/
+    /*---corrfunc-variables----------------*/
 #if !(defined(USE_OMP) && defined(_OPENMP))
     const char argnames[][30]={"file1","format1","file2","format2","binfile","pimax"};
 #else

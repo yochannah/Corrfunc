@@ -1,7 +1,7 @@
 .. _python-interface:
 
 ****************************************
-Using the python extensions in Corrfunc
+Using the python extensions in corrfunc
 ****************************************
 
 This guide assumes that you already followed the :ref:`step_by_step_install`
@@ -10,19 +10,19 @@ up on your machine. Rest of document also assumes that you have installed
 the C extensions for python.
 
 
-Importing Corrfunc
+Importing corrfunc
 ===================
 
-After installing Corrfunc you can open up a python terminal and import the
+After installing corrfunc you can open up a python terminal and import the
 base package by:
 
-    >>> import Corrfunc
+    >>> import corrfunc
 
 All of the functionality is divided into ``theory`` routines and ``mocks``
 routines. These routines can be independently imported by using:
 
-    >>> from Corrfunc.theory import *
-    >>> from Corrfunc.mocks import *
+    >>> from corrfunc.theory import *
+    >>> from corrfunc.mocks import *
 
 You can access the full API documentation by simply typing:
 
@@ -33,20 +33,20 @@ You can access the full API documentation by simply typing:
 
 .. _first_steps:
 
-First steps with Corrfunc
+First steps with corrfunc
 ============================
 
-Overview of Corrfunc inputs
+Overview of corrfunc inputs
 ------------------------------
 
-Broadly speaking, Corrfunc requires these following inputs:
+Broadly speaking, corrfunc requires these following inputs:
 
 * (At least) 3 arrays specifying the positions for the particles
   
-  - For ``Corrfunc.theory`` routines, these positions are Cartesian XYZ in
+  - For ``corrfunc.theory`` routines, these positions are Cartesian XYZ in
     co-moving ``Mpc/h`` units.
 
-  - For ``Corrfunc.mocks`` routines, these positions are ``Right Ascension``,
+  - For ``corrfunc.mocks`` routines, these positions are ``Right Ascension``,
     ``Declination``, and ``Speed of Light * Redshift`` or ``Co-moving
     distance``. The angles are expected in degrees, while the distance is
     expected in co-moving ``Mpc/h``.
@@ -56,13 +56,13 @@ Broadly speaking, Corrfunc requires these following inputs:
 * A boolean flag specifying in an auto-correlation or cross-correlation is
   being performed. In case of cross-correlations, another set of 3 arrays
   **must** be passed as input. This second set of arrays typically represents
-  randoms for ``Corrfunc.mocks``.
+  randoms for ``corrfunc.mocks``.
  
 * A file containing the bins for the clustering statistic (where
   relevant). Look at ``theory/tests/bins`` for an example of the contents of
   the file for spatial bins. See ``mocks/tests/angular_bins`` for an example
   containing angular bins for mocks routines. Passing a filename is the most
-  general way of specifying bins in Corrfunc. However, you can also pass in a
+  general way of specifying bins in corrfunc. However, you can also pass in a
   1-D array for the bins.   
   
   See :ref:`generate_bins` for details on how to specify the bins as a file as
@@ -70,12 +70,12 @@ Broadly speaking, Corrfunc requires these following inputs:
 
 See :ref:`function_usage_examples` for a broad overview of the typical tasks
 associated with computing correlation functions. Read on for the various
-pair-counters available within the python interfaces of Corrfunc. 
+pair-counters available within the python interfaces of corrfunc. 
 
 Calculating spatial clustering statistics in simulation boxes
 ==============================================================
 
-Corrfunc can compute a range of spatial correlation functions and the
+corrfunc can compute a range of spatial correlation functions and the
 counts-in-cells. For all of these calculations a few inputs are required. The
 following code section sets up the default inputs that are used later on in the
 clustering functions:
@@ -84,10 +84,10 @@ clustering functions:
 .. code:: python
                
                >>> import numpy as np
-               >>> from Corrfunc.io import read_catalog
+               >>> from corrfunc.io import read_catalog
           
                # Read the default galaxies supplied with
-               # Corrfunc. ~ 1 million galaxies on a 420 Mpc/h cube
+               # corrfunc. ~ 1 million galaxies on a 420 Mpc/h cube
                >>> X, Y, Z = read_catalog()
                
                # Specify boxsize for the XYZ arrays
@@ -111,7 +111,7 @@ clustering functions:
 .. testsetup:: theory
 
           import numpy as np
-          from Corrfunc.io import read_catalog
+          from corrfunc.io import read_catalog
           X, Y, Z = read_catalog()
           boxsize = 420.0
           nthreads = 2
@@ -123,10 +123,10 @@ clustering functions:
           autocorr = 1
 
           
-Calculating 2-D projected auto-correlation (``Corrfunc.theory.wp``)
+Calculating 2-D projected auto-correlation (``corrfunc.theory.wp``)
 ---------------------------------------------------------------------
 
-Corrfunc can directly compute the projected auto-correlation function,
+corrfunc can directly compute the projected auto-correlation function,
 :math:`w_p(r_p)`. This calculation sets periodic boundary conditions. Randoms
 are calculated analytically based on the supplied boxsize. The projected
 separation, :math:`r_p` is calculated in the X-Y plane while the line-of-sight
@@ -135,41 +135,41 @@ separation, :math:`\pi` is calculated in the Z plane. Only pairs with
 
 .. testcode:: theory
 
-          from Corrfunc.theory.wp import wp
+          from corrfunc.theory.wp import wp
           results_wp = wp(boxsize, pimax, nthreads, rbins, X, Y, Z)
           
 
-Calculating 3-D autocorrelation (``Corrfunc.theory.xi``)
+Calculating 3-D autocorrelation (``corrfunc.theory.xi``)
 ------------------------------------------------------------
 
-Corrfunc can also compute the 3-D auto-correlation function,
+corrfunc can also compute the 3-D auto-correlation function,
 :math:`\xi(r)`. Like :math:`w_p(r_p)`, this calculation also enforces periodic
 boundary conditions and an auto-correlation. Randoms are calculated
 analytically on the supplied boxsize. 
 
 .. testcode:: theory
 
-          from Corrfunc.theory.xi import xi
+          from corrfunc.theory.xi import xi
           results_xi = xi(boxsize, nthreads, rbins, X, Y, Z)
 
    
-Calculating 3-D pair-counts (``Corrfunc.theory.DD``)
+Calculating 3-D pair-counts (``corrfunc.theory.DD``)
 -----------------------------------------------------
 
-Corrfunc can return the pair counts in 3-D real-space for a set of arrays. The
+corrfunc can return the pair counts in 3-D real-space for a set of arrays. The
 calculation can be either auto or cross-correlation, *and* with or without periodic
 boundaries. The pairs are always double-counted. Additionally, if the smallest
 bin is ``0.0`` for an autocorrelation, then the self-pairs *will* be counted.
 
 .. testcode:: theory
 
-          from Corrfunc.theory.DD import DD
+          from corrfunc.theory.DD import DD
           results_DD = DD(autocorr, nthreads, rbins, X, Y, Z)
           
 
-Calculating 2-D pair-counts (``Corrfunc.theory.DDrppi``)
+Calculating 2-D pair-counts (``corrfunc.theory.DDrppi``)
 --------------------------------------------------------
-Corrfunc can return the pair counts in 2-D real-space for a set of arrays. The
+corrfunc can return the pair counts in 2-D real-space for a set of arrays. The
 calculation can be either auto or cross-correlation, *and* with or without periodic
 boundaries. The projected separation, :math:`r_p` is calculated in the X-Y plane while the
 line-of-sight separation, :math:`\pi` is calculated in the Z plane.
@@ -179,19 +179,19 @@ bin is ``0.0`` for an autocorrelation, then the self-pairs *will* be counted.
 
 .. testcode:: theory
 
-          from Corrfunc.theory.DDrppi import DDrppi
+          from corrfunc.theory.DDrppi import DDrppi
           results_DDrppi = DDrppi(autocorr, nthreads, pimax, rbins, X, Y, Z, boxsize=boxsize)
 
 
-Calculating the Counts-in-Cells (``Corrfunc.theory.vpf``)
+Calculating the Counts-in-Cells (``corrfunc.theory.vpf``)
 ---------------------------------------------------------
-Corrfunc can calculate the counts-in-cells statistics. The simplest example for
+corrfunc can calculate the counts-in-cells statistics. The simplest example for
 counts-in-cells is the Void Probability Function -- the probability that a
 sphere of a certain size contains zero galaxies.
 
 .. testcode:: theory
 
-          from Corrfunc.theory.vpf import vpf
+          from corrfunc.theory.vpf import vpf
 
           # Maximum radius of the sphere in Mpc/h
           rmax = 10.0
@@ -222,16 +222,16 @@ sets up the default arrays and parameters for the actual clustering calculations
 .. code:: python
           
           import numpy as np
-          import Corrfunc
+          import corrfunc
           from os.path import dirname, abspath, join as pjoin
-          from Corrfunc.io import read_catalog
+          from corrfunc.io import read_catalog
 
-          # Mock catalog (SDSS-North) supplied with Corrfunc
-          mock_catalog = pjoin(dirname(abspath(Corrfunc.__file__)), "../mocks/tests/data/", "Mr19_mock_northonly.rdcz.ff")
+          # Mock catalog (SDSS-North) supplied with corrfunc
+          mock_catalog = pjoin(dirname(abspath(corrfunc.__file__)), "../mocks/tests/data/", "Mr19_mock_northonly.rdcz.ff")
           RA, DEC, CZ = read_catalog(mock_catalog)
 
-          # Randoms catalog (SDSS-North) supplied with Corrfunc
-          randoms_catalog = pjoin(dirname(abspath(Corrfunc.__file__)), "../mocks/tests/data/", "Mr19_randoms_northonly.rdcz.ff")
+          # Randoms catalog (SDSS-North) supplied with corrfunc
+          randoms_catalog = pjoin(dirname(abspath(corrfunc.__file__)), "../mocks/tests/data/", "Mr19_randoms_northonly.rdcz.ff")
           RAND_RA, RAND_DEC, RAND_CZ = read_catalog(randoms_catalog)
                                   
           # Number of threads to use
@@ -256,12 +256,12 @@ sets up the default arrays and parameters for the actual clustering calculations
 .. testsetup:: mocks
 
           import numpy as np
-          import Corrfunc
+          import corrfunc
           from os.path import dirname, abspath, join as pjoin
-          from Corrfunc.io import read_catalog
-          mock_catalog = pjoin(dirname(abspath(Corrfunc.__file__)), "../mocks/tests/data/", "Mr19_mock_northonly.rdcz.ff")
+          from corrfunc.io import read_catalog
+          mock_catalog = pjoin(dirname(abspath(corrfunc.__file__)), "../mocks/tests/data/", "Mr19_mock_northonly.rdcz.ff")
           RA, DEC, CZ = read_catalog(mock_catalog)
-          randoms_catalog = pjoin(dirname(abspath(Corrfunc.__file__)), "../mocks/tests/data/", "Mr19_randoms_northonly.rdcz.ff")
+          randoms_catalog = pjoin(dirname(abspath(corrfunc.__file__)), "../mocks/tests/data/", "Mr19_randoms_northonly.rdcz.ff")
           RAND_RA, RAND_DEC, RAND_CZ = read_catalog(randoms_catalog)
           nthreads = 2
           cosmology = 1 
@@ -274,9 +274,9 @@ sets up the default arrays and parameters for the actual clustering calculations
 
           
 
-Calculating 2-D pair counts (``Corrfunc.mocks.DDrppi_mocks``)
+Calculating 2-D pair counts (``corrfunc.mocks.DDrppi_mocks``)
 -------------------------------------------------------------
-Corrfunc can calculate pair counts for mock catalogs. The input positions are
+corrfunc can calculate pair counts for mock catalogs. The input positions are
 expected to be ``Right Ascension``, ``Declination`` and ``CZ`` (speed of light
 times redshift, in ``Mpc/h``). Cosmology has to be specified since ``CZ`` needs
 to be converted into co-moving distance. If you want to calculate in arbitrary
@@ -295,36 +295,36 @@ equations from `Zehavi et al. 2002 <http://adsabs.harvard.edu/abs/2002ApJ...571.
 where, :math:`\mathbf{v_1}` and :math:`\mathbf{v_2}` are the vectors for the
 two points under consideration. 
    
-Here is the python code to call ``Corrfunc.mocks.DDrppi_mocks``:
+Here is the python code to call ``corrfunc.mocks.DDrppi_mocks``:
 
 .. testcode:: mocks
 
-          from Corrfunc.mocks.DDrppi_mocks import DDrppi_mocks
+          from corrfunc.mocks.DDrppi_mocks import DDrppi_mocks
           results_DDrppi_mocks = DDrppi_mocks(autocorr, cosmology, nthreads,
           pimax, rbins, RA, DEC, CZ)
   
 
-Calculating angular pair-counts (``Corrfunc.mocks.DDtheta_mocks``)
+Calculating angular pair-counts (``corrfunc.mocks.DDtheta_mocks``)
 -------------------------------------------------------------------
-Corrfunc can compute angular pair counts for mock catalogs. The input positions
+corrfunc can compute angular pair counts for mock catalogs. The input positions
 are expected to be ``Right Ascension`` and ``Declination``. Since all
 calculations are in angular space, cosmology is not required.
 
 .. testcode:: mocks
 
-          from Corrfunc.mocks.DDtheta_mocks import DDtheta_mocks
+          from corrfunc.mocks.DDtheta_mocks import DDtheta_mocks
           results_DDtheta_mocks = DDtheta_mocks(autocorr, nthreads, rbins, RA, DEC)
 
           
-Calculating the Counts-in-Cells (``Corrfunc.mocks.vpf_mocks``)
+Calculating the Counts-in-Cells (``corrfunc.mocks.vpf_mocks``)
 ---------------------------------------------------------------
-Corrfunc can calculate the counts-in-cells statistics. The simplest example for
+corrfunc can calculate the counts-in-cells statistics. The simplest example for
 counts-in-cells is the Void Probability Function -- the probability that a
 sphere of a certain size contains zero galaxies.
 
 .. testcode:: mocks
 
-          from Corrfunc.mocks.vpf_mocks import vpf_mocks
+          from corrfunc.mocks.vpf_mocks import vpf_mocks
 
           # Maximum radius of the sphere in Mpc/h
           rmax = 10.0
@@ -346,8 +346,8 @@ sphere of a certain size contains zero galaxies.
 
           # File with sphere centers (centers such that spheres with size
           # rmax=10 Mpc/h are completely inside the survey)
-          centers_file = pjoin(dirname(abspath(Corrfunc.__file__)), "../mocks/tests/data/", "Mr19_centers_xyz_forVPF_rmax_10Mpc.txt")
+          centers_file = pjoin(dirname(abspath(corrfunc.__file__)), "../mocks/tests/data/", "Mr19_centers_xyz_forVPF_rmax_10Mpc.txt")
 
           results_vpf_mocks = vpf_mocks(rmax, nbins, nspheres, numpN, threshold_ngb, centers_file, cosmology, RA, DEC, CZ, RAND_RA, RAND_DEC, RAND_CZ)
 
-See the complete reference here :py:mod:`Corrfunc`.
+See the complete reference here :py:mod:`corrfunc`.

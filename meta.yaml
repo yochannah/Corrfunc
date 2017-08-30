@@ -4,11 +4,11 @@ package:
 
 source:
   path: dist
-  fn: Corrfunc-2.0.0.tar.gz
+  fn: corrfunc-2.0.0.tar.gz
   md5: 8523662c871c33f3db44ffe535c0e286
 
   
-  # git_url: https://github.com/manodeep/Corrfunc.git
+  # git_url: https://github.com/manodeep/corrfunc.git
   # git_rev: master
   
 requirements:
@@ -42,18 +42,18 @@ test:
     - mocks/tests/angular_bins
     - mocks/tests/data/Mr19_centers_xyz_forVPF_rmax_10Mpc.txt
   imports:
-    - Corrfunc
-    - Corrfunc._countpairs
-    - Corrfunc._countpairs_mocks
-    - Corrfunc.call_correlation_functions
-    - Corrfunc.call_correlation_functions_mocks
+    - corrfunc
+    - corrfunc._countpairs
+    - corrfunc._countpairs_mocks
+    - corrfunc.call_correlation_functions
+    - corrfunc.call_correlation_functions_mocks
 
   commands:
-    - python -c "import Corrfunc.call_correlation_functions as c; c.main()"
-    - python -c "import Corrfunc.call_correlation_functions_mocks as m; m.main()"
+    - python -c "import corrfunc.call_correlation_functions as c; c.main()"
+    - python -c "import corrfunc.call_correlation_functions_mocks as m; m.main()"
 	
 about:
-  home: http://manodeep.github.io/Corrfunc/
+  home: http://manodeep.github.io/corrfunc/
   license: MIT
   license_file: LICENSE
   summary: Blazing fast correlation functions on the CPU

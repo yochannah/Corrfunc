@@ -4,7 +4,7 @@
 """
 Python wrapper around the C extension for the counts-in-cells
 for 3-D real space. Corresponding C codes are in ``theory/vpf``
-while the python wrapper is in :py:mod:`Corrfunc.theory.vpf`.
+while the python wrapper is in :py:mod:`corrfunc.theory.vpf`.
 """
 
 from __future__ import (division, print_function, absolute_import,
@@ -144,7 +144,7 @@ def vpf(rmax, nbins, nspheres, numpN, seed,
 
     >>> from __future__ import print_function
     >>> import numpy as np
-    >>> from Corrfunc.theory.vpf import vpf
+    >>> from corrfunc.theory.vpf import vpf
     >>> rmax = 10.0
     >>> nbins = 10
     >>> nspheres = 10000
@@ -179,7 +179,7 @@ def vpf(rmax, nbins, nspheres, numpN, seed,
     """
 
     try:
-        from Corrfunc._countpairs import countspheres_vpf as vpf_extn
+        from corrfunc._countpairs import countspheres_vpf as vpf_extn
     except ImportError:
         msg = "Could not import the C extension for the Counts-in-Cells "\
               " (vpf)"
@@ -187,7 +187,7 @@ def vpf(rmax, nbins, nspheres, numpN, seed,
 
     import numpy as np
     from future.utils import bytes_to_native_str
-    from Corrfunc.utils import translate_isa_string_to_enum
+    from corrfunc.utils import translate_isa_string_to_enum
     from math import pi
 
     if numpN <= 0:

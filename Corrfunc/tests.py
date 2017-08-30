@@ -13,16 +13,16 @@ if sys.version_info[0] < 3:
 def tests():
     """
     Wrapper to run the two scripts that should have been installed
-    with the Corrfunc package.
+    with the corrfunc package.
 
     If the two scripts (one for theory extensions, one for mocks extensions)
     run successfully, then the package is working correctly.
     """
 
     # Import the script for calling the theory extensions
-    from Corrfunc import call_correlation_functions as ct
+    from corrfunc import call_correlation_functions as ct
     # Import the script for calling the mocks extensions
-    from Corrfunc import call_correlation_functions_mocks as cm
+    from corrfunc import call_correlation_functions_mocks as cm
 
     # Run the theory script
     ct.main()

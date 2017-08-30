@@ -1,6 +1,6 @@
 from __future__ import print_function, division
 
-from Corrfunc.utils import gridlink_sphere
+from corrfunc.utils import gridlink_sphere
 import numpy as np
 from numpy import sin, cos
 from mayavi import mlab

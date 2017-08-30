@@ -1,7 +1,7 @@
 .. _staticlibrary-interface:
 
 ***********************************************
-Using the static library interface in Corrfunc
+Using the static library interface in corrfunc
 ***********************************************
 
 This guide assumes that you already followed the :ref:`step_by_step_install`
@@ -18,9 +18,9 @@ The basic principle of using the static libraries has the following steps:
 * Include the appropriate header to get the correct function signature (at
   compile time)
 * In your code, include call with clustering function with appropriate parameters
-* Compile your code with ``-I </path/to/Corrfunc/include>`` flags. If you have
-  installed Corrfunc via ``pip``, then use
-  ``os.path.join(os.path.dirname(Corrfunc.__file__), ../include/)`` as the
+* Compile your code with ``-I </path/to/corrfunc/include>`` flags. If you have
+  installed corrfunc via ``pip``, then use
+  ``os.path.join(os.path.dirname(corrfunc.__file__), ../include/)`` as the
   include header.
 * Link your code with the appropriate static library. Look in the
   ``examples/Makefile`` for the linker flags.
@@ -66,7 +66,7 @@ required by the C static libraries.
 Calculating 2-D projected auto-correlation (``theory/wp/libcountpairs_wp.a``)
 --------------------------------------------------------------------------------
 
-Corrfunc can directly compute the projected auto-correlation function,
+corrfunc can directly compute the projected auto-correlation function,
 :math:`w_p(r_p)`. This calculation sets periodic boundary conditions. Randoms
 are calculated analytically based on the supplied boxsize. The projected
 separation, :math:`r_p` is calculated in the X-Y plane while the line-of-sight
@@ -104,7 +104,7 @@ static libraries.
           
 Worked out example C code for clustering statistics in mock catalogs
 ======================================================================
-Corrfunc can calculate pair counts for mock catalogs. The input positions are
+corrfunc can calculate pair counts for mock catalogs. The input positions are
 expected to be ``Right Ascension``, ``Declination`` and ``CZ`` (speed of light
 times redshift, in ``Mpc/h``). Cosmology has to be specified since ``CZ`` needs
 to be converted into co-moving distance. If you want to calculate in arbitrary
@@ -112,7 +112,7 @@ cosmology, then you have two options:
 
 * convert ``CZ`` into co-moving distance, and then pass the converted array while setting ``config_option.is_comoving_dist=1``.
 * Add another cosmology in ``utils/cosmology_params.c`` in the function
-  ``init_cosmology``. Then, recompile the ``Corrfunc.mocks`` and pass
+  ``init_cosmology``. Then, recompile the ``corrfunc.mocks`` and pass
   ``cosmology=integer_for_newcosmology`` into the relevant functions.
 
 

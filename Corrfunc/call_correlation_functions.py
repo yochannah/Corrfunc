@@ -5,7 +5,7 @@
 Example python code to call the theory clustering functions
 from python. This script calls the python extensions directly;
 however the recommended use is via the wrappers provided
-in :py:mod:`Corrfunc.theory`.
+in :py:mod:`corrfunc.theory`.
 """
 
 from __future__ import (absolute_import, division, print_function,
@@ -15,9 +15,9 @@ from os.path import dirname, abspath, join as pjoin
 import time
 import numpy as np
 
-import Corrfunc
-from Corrfunc.io import read_catalog
-from Corrfunc._countpairs import\
+import corrfunc
+from corrfunc.io import read_catalog
+from corrfunc._countpairs import\
     countpairs as DD_extn,\
     countpairs_rp_pi as DDrppi_extn,\
     countpairs_wp as wp_extn,\
@@ -39,7 +39,7 @@ def main():
     print("Beginning Theory Correlation functions calculations")
     nthreads = 4
     pimax = 40.0
-    binfile = pjoin(dirname(abspath(Corrfunc.__file__)),
+    binfile = pjoin(dirname(abspath(corrfunc.__file__)),
                     "../theory/tests/", "bins")
     autocorr = 1
     periodic = 1

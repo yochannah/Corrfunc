@@ -10,39 +10,39 @@ New features
   precision)
 - Both the API and ABI should be future proof
 - Extensive docs (first version with docs)
-- Arbitrary cosmology can be accounted for in the mocks routines  `#71 <https://github.com/manodeep/Corrfunc/issues/71>`_
+- Arbitrary cosmology can be accounted for in the mocks routines  `#71 <https://github.com/manodeep/corrfunc/issues/71>`_
   
 **Breaking Changes**
 ---------------------
 
 - API has changed from previous version. Two additional inputs are
-  now required for every statistic (`#73 <https://github.com/manodeep/Corrfunc/issues/73>`_)
+  now required for every statistic (`#73 <https://github.com/manodeep/corrfunc/issues/73>`_)
   
 
 Enhancements
 ------------
 
-- Ctrl-C now aborts even within python extensions (cleans up memory too!, `#12 <https://github.com/manodeep/Corrfunc/issues/12>`_)
+- Ctrl-C now aborts even within python extensions (cleans up memory too!, `#12 <https://github.com/manodeep/corrfunc/issues/12>`_)
 - Significantly improved installation for python
   - compiler can now be specified within ``python setup.py install
-    CC=yourcompiler`` `#31<https://github.com/manodeep/Corrfunc/issues/31>`_
-  - python via an alias is now solved `#52 <https://github.com/manodeep/Corrfunc/issues/52>`_
+    CC=yourcompiler`` `#31<https://github.com/manodeep/corrfunc/issues/31>`_
+  - python via an alias is now solved `#52 <https://github.com/manodeep/corrfunc/issues/52>`_
 
 
 Bug fixes
 ----------
 
 - Fixed bug in ``DDrppi_mocks`` where the minimum number of grid cells had to
-  be 1 `#70 <https://github.com/manodeep/Corrfunc/issues/70>`_
+  be 1 `#70 <https://github.com/manodeep/corrfunc/issues/70>`_
   
 
 
 Outstanding issues
 -------------------
-- Conda package still is pending (`#49 <https://github.com/manodeep/Corrfunc/issues/49>`_)
+- Conda package still is pending (`#49 <https://github.com/manodeep/corrfunc/issues/49>`_)
 - Recursive Makefile needs to be replaced with
-  a more monolithic Makefile (`#14 <https://github.com/manodeep/Corrfunc/issues/14>`_)
-- Parameter parsing in python extensions can be flaky (`#79 <https://github.com/manodeep/Corrfunc/issues/79>`_)
+  a more monolithic Makefile (`#14 <https://github.com/manodeep/corrfunc/issues/14>`_)
+- Parameter parsing in python extensions can be flaky (`#79 <https://github.com/manodeep/corrfunc/issues/79>`_)
 
 
 1.1.0 (June 8, 2016)
@@ -71,7 +71,7 @@ Outstanding issues
 0.2.2 (Feb 9, 2016)
 ====================
 
-- First version on `PyPI <https://pypi.python.org/pypi/Corrfunc>`_
+- First version on `PyPI <https://pypi.python.org/pypi/corrfunc>`_
 
 
 0.2.1 (Feb 6, 2016)

@@ -1,10 +1,10 @@
 // # -*- mode: c -*-
 /* File: countpairs_theta_mocks_impl.c.src */
 /*
-  This file is a part of the Corrfunc package
+  This file is a part of the corrfunc package
   Copyright (C) 2015-- Manodeep Sinha (manodeep@gmail.com)
   License: MIT LICENSE. See LICENSE file under the top-level
-  directory at https://github.com/manodeep/Corrfunc/
+  directory at https://github.com/manodeep/corrfunc/
 */
 #include <stdio.h>
 #include <stdlib.h>
@@ -751,7 +751,7 @@ int countpairs_theta_mocks_DOUBLE(const int64_t ND1, DOUBLE *ra1, DOUBLE *dec1,
 
     if(autocorr == 1 && lattice2 != lattice1) {
         fprintf(stderr,"In %s> ERROR: Bug in code. Autocorr is set but the two lattices point to different memory locations\n"
-                "lattice1 = %p lattice2 = %p. Please file an issue at the repo (github.com/manodeep/Corrfunc)\n",
+                "lattice1 = %p lattice2 = %p. Please file an issue at the repo (github.com/manodeep/corrfunc)\n",
                 __FUNCTION__,lattice1, lattice2);
         return EXIT_FAILURE;
     }

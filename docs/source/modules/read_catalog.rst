@@ -1,14 +1,14 @@
 .. _read_catalog:
 
 ******************************
-Reading Catalogs for Corrfunc
+Reading Catalogs for corrfunc
 ******************************
 
-All of the ``Corrfunc`` routines require some sort of
+All of the ``corrfunc`` routines require some sort of
 position arrays, X/Y/Z, as input. These arrays are
 expected to be 1-D arrays of type ``np.array``. If
 you already have have the required ``numpy`` arrays,
-then you can just pass them straight to ``Corrfunc``.
+then you can just pass them straight to ``corrfunc``.
 If you need to read the arrays in from disk, then read
 on. For the command-line interface, the input files can only
 be in ASCII or fast-food format (for description of fast-food
@@ -40,31 +40,31 @@ Using ``numpy.genfromtxt``
           X, Y, Z = np.genfromtxt(fname, dtype=dtype, unpack=True)
 
 
-.. note:: :py:mod:`Corrfunc.read_catalog` uses this exact code-snippet to read in ASCII files in python. 
+.. note:: :py:mod:`corrfunc.read_catalog` uses this exact code-snippet to read in ASCII files in python. 
 
 
 Reading from fast-food files
 =============================
 
 If you are using the command-line interface, then the code will **have** to
-read the arrays from files. While ``Corrfunc`` natively supports both
+read the arrays from files. While ``corrfunc`` natively supports both
 ASCII and fast-food formats (for description of fast-food binaries, see
 :ref:`fast_food_binary`), the following python utility is intended to
 read both these types of files.      
 
 
-Using utility: :py:mod:`Corrfunc.io.read_catalog`
+Using utility: :py:mod:`corrfunc.io.read_catalog`
 -------------------------------------------------
 
-:py:mod:`Corrfunc.io.read_catalog` can directly read ASCII files or fast-food binary
+:py:mod:`corrfunc.io.read_catalog` can directly read ASCII files or fast-food binary
 files. 
 
 .. code:: python
 
-          from Corrfunc.io import read_catalog
+          from corrfunc.io import read_catalog
 
           # Read the standard theory catalog (on a box)
-          # supplied with Corrfunc
+          # supplied with corrfunc
           X, Y, Z = read_catalog()
 
           # Read some other format -> have to specify

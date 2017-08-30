@@ -3,10 +3,10 @@
 Computing Weighted Correlation Functions
 ========================================
 
-Every clustering statistic in ``Corrfunc`` accepts an array
+Every clustering statistic in ``corrfunc`` accepts an array
 of weights that can be used to compute weighted correlation
 functions. The API reference for each clustering statistic
-(:py:mod:`Corrfunc.theory.xi`, :py:mod:`Corrfunc.mocks.DDrppi_mocks`,
+(:py:mod:`corrfunc.theory.xi`, :py:mod:`corrfunc.mocks.DDrppi_mocks`,
 etc.) contains examples of how to do this.  The interface is standard across functions: the
 inputs are a ``weights`` array and a ``weight_type`` string
 that specifies how to use the "point weights" to compute a "pair weight".
@@ -22,7 +22,7 @@ output.  This field is 0.0 if weights are disabled.
 
 Pair counts (i.e. the ``npairs`` field in the ``results`` array)
 are never affected by weights.  For theory functions like
-:py:mod:`Corrfunc.theory.xi` and :py:mod:`Corrfunc.theory.wp`
+:py:mod:`corrfunc.theory.xi` and :py:mod:`corrfunc.theory.wp`
 that actually return a clustering statistic, the statistic is weighted.
 For ``pair_product``, the distribution used to compute the
 expected bin weight from an unclustered particle set (the ``RR`` term)
@@ -33,7 +33,7 @@ Running with weights incurrs a modest performance hit (around
 20%, similar to enabling ``ravg``).  Weights are supported for
 all instruction sets (SSE, AVX, and fallback).
 
-Consider the following simple example adapted from the :py:mod:`Corrfunc.theory.xi`
+Consider the following simple example adapted from the :py:mod:`corrfunc.theory.xi`
 docstring, in which we assign a weight of 0.5 to every particle and get
 the expected average pair weight of 0.25 (last column of the output).
 Note that ``xi`` (fourth column) is also weighted, but the case of uniform
@@ -44,9 +44,9 @@ weights is equivalent to the unweighted case.
     >>> from __future__ import print_function
     >>> import numpy as np
     >>> from os.path import dirname, abspath, join as pjoin
-    >>> import Corrfunc
-    >>> from Corrfunc.theory.xi import xi
-    >>> binfile = pjoin(dirname(abspath(Corrfunc.__file__)),
+    >>> import corrfunc
+    >>> from corrfunc.theory.xi import xi
+    >>> binfile = pjoin(dirname(abspath(corrfunc.__file__)),
     ...                 "../theory/tests/", "bins")
     >>> N = 100000
     >>> boxsize = 420.0

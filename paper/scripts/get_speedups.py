@@ -15,7 +15,7 @@ try:
 except ImportError:
     import pickle
         
-from Corrfunc.io import read_catalog
+from corrfunc.io import read_catalog
 import multiprocessing
 max_threads = multiprocessing.cpu_count()
 
@@ -57,10 +57,10 @@ class nf(float):
 
 
 def run_wp(boxsize, x, y, z, pimax, nthreads=max_threads, isa=None):
-    import Corrfunc
-    from Corrfunc.theory import wp
+    import corrfunc
+    from corrfunc.theory import wp
     from os.path import dirname, abspath, join as pjoin
-    #binfile = pjoin(dirname(abspath(Corrfunc.__file__)),
+    #binfile = pjoin(dirname(abspath(corrfunc.__file__)),
     #                "../theory/tests/", "bins")
     binfile = './bins'
     _, cell_time = wp(boxsize, pimax, nthreads, binfile,

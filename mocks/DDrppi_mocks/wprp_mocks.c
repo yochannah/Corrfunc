@@ -1,9 +1,9 @@
 /* File: wprp_mocks.c */
 /*
-  This file is a part of the Corrfunc package
+  This file is a part of the corrfunc package
   Copyright (C) 2015-- Manodeep Sinha (manodeep@gmail.com)
   License: MIT LICENSE. See LICENSE file under the top-level
-  directory at https://github.com/manodeep/Corrfunc/
+  directory at https://github.com/manodeep/corrfunc/
 */
 
 /* PROGRAM wprp
@@ -46,7 +46,7 @@ int main(int argc, char *argv[])
     /*---Data-variables--------------------*/
     int ndat ;
     double *logrp1,*ravg1,*pi1,*D1D2,*D1R2,*D2R1,*R1R2 ;
-    /*---Corrfunc-variables----------------*/
+    /*---corrfunc-variables----------------*/
     int npibin,indx,npimax ;
     double dpi ;
     double fN1,fN2,*xirppi,*wp,*logrp,*rpavg,*DDtot ;

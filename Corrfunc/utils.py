@@ -78,9 +78,9 @@ def convert_3d_counts_to_cf(ND1, ND2, NR1, NR2,
 
     >>> from __future__ import print_function
     >>> import numpy as np
-    >>> from Corrfunc.theory.DD import DD
-    >>> from Corrfunc.io import read_catalog
-    >>> from Corrfunc.utils import convert_3d_counts_to_cf
+    >>> from corrfunc.theory.DD import DD
+    >>> from corrfunc.io import read_catalog
+    >>> from corrfunc.utils import convert_3d_counts_to_cf
     >>> X, Y, Z = read_catalog()
     >>> N = len(X)
     >>> boxsize = 420.0
@@ -227,9 +227,9 @@ def convert_rp_pi_counts_to_wp(ND1, ND2, NR1, NR2,
 
     >>> from __future__ import print_function
     >>> import numpy as np
-    >>> from Corrfunc.theory.DDrppi import DDrppi
-    >>> from Corrfunc.io import read_catalog
-    >>> from Corrfunc.utils import convert_rp_pi_counts_to_wp
+    >>> from corrfunc.theory.DDrppi import DDrppi
+    >>> from corrfunc.io import read_catalog
+    >>> from corrfunc.utils import convert_rp_pi_counts_to_wp
     >>> X, Y, Z = read_catalog()
     >>> N = len(X)
     >>> boxsize = 420.0
@@ -305,7 +305,7 @@ def convert_rp_pi_counts_to_wp(ND1, ND2, NR1, NR2,
         raise ValueError(msg)
 
     # Check that dpi/pimax/npibins are consistent
-    # Preventing issue #96 (https://github.com/manodeep/Corrfunc/issues/96)
+    # Preventing issue #96 (https://github.com/manodeep/corrfunc/issues/96)
     # where npibins would be calculated incorrectly, and the summation would
     # be wrong.
     if (dpi*npibins != pimax):
@@ -322,7 +322,7 @@ def convert_rp_pi_counts_to_wp(ND1, ND2, NR1, NR2,
 
 def return_file_with_rbins(rbins):
     """
-    Helper function to ensure that the ``binfile`` required by the Corrfunc
+    Helper function to ensure that the ``binfile`` required by the corrfunc
     extensions is a actually a string.
 
     Checks if the input is a string and file; return if True. If not, and
@@ -554,7 +554,7 @@ def compute_nbins(max_diff, binsize,
     Example
     ---------
     
-    >>> from Corrfunc.utils import compute_nbins
+    >>> from corrfunc.utils import compute_nbins
     >>> max_diff = 180
     >>> binsize = 10
     >>> compute_nbins(max_diff, binsize)
@@ -608,7 +608,7 @@ def gridlink_sphere(thetamax,
     points within a certain angular separation, ``thetamax``, can be quickly
     computed. 
 
-    Generates the  binning scheme used in :py:mod:`Corrfunc.mocks.DDtheta_mocks` 
+    Generates the  binning scheme used in :py:mod:`corrfunc.mocks.DDtheta_mocks` 
     for a spherical region in Right Ascension (RA), Declination (DEC) 
     and a maximum angular separation. 
 
@@ -673,12 +673,12 @@ def gridlink_sphere(thetamax,
        RA values.
 
 
-    .. seealso:: :py:mod:`Corrfunc.mocks.DDtheta_mocks`
+    .. seealso:: :py:mod:`corrfunc.mocks.DDtheta_mocks`
 
     Example
     --------
 
-    >>> from Corrfunc.utils import gridlink_sphere
+    >>> from corrfunc.utils import gridlink_sphere
     >>> thetamax=30
     >>> gridlink_sphere(thetamax)
     array([([-1.57079633, -1.04719755], [ 0.        ,  3.14159265]),

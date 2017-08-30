@@ -3,7 +3,7 @@
 
 """
 Python wrapper around the C extension for the pair counter in
-``theory/DD/``. This wrapper is in :py:mod:`Corrfunc.theory.DD`
+``theory/DD/``. This wrapper is in :py:mod:`corrfunc.theory.DD`
 """
 
 from __future__ import (division, print_function, absolute_import,
@@ -28,7 +28,7 @@ def DD(autocorr, nthreads, binfile, X1, Y1, Z1, weights1=None, periodic=True,
 
     .. note:: This module only returns pair counts and not the actual
        correlation function :math:`\\xi(r)`. See 
-       :py:mod:`Corrfunc.utils.convert_3d_counts_to_cf` for computing 
+       :py:mod:`corrfunc.utils.convert_3d_counts_to_cf` for computing 
        for computing :math:`\\xi(r)` from the pair counts returned.
 
 
@@ -145,9 +145,9 @@ def DD(autocorr, nthreads, binfile, X1, Y1, Z1, weights1=None, periodic=True,
     >>> from __future__ import print_function
     >>> import numpy as np
     >>> from os.path import dirname, abspath, join as pjoin
-    >>> import Corrfunc
-    >>> from Corrfunc.theory.DD import DD
-    >>> binfile = pjoin(dirname(abspath(Corrfunc.__file__)),
+    >>> import corrfunc
+    >>> from corrfunc.theory.DD import DD
+    >>> binfile = pjoin(dirname(abspath(corrfunc.__file__)),
     ...                 "../theory/tests/", "bins")
     >>> N = 10000
     >>> boxsize = 420.0
@@ -180,14 +180,14 @@ def DD(autocorr, nthreads, binfile, X1, Y1, Z1, weights1=None, periodic=True,
 
     """
     try:
-        from Corrfunc._countpairs import countpairs as DD_extn
+        from corrfunc._countpairs import countpairs as DD_extn
     except ImportError:
         msg = "Could not import the C extension for the 3-D "\
               "real-space pair counter."
         raise ImportError(msg)
 
     import numpy as np
-    from Corrfunc.utils import translate_isa_string_to_enum,\
+    from corrfunc.utils import translate_isa_string_to_enum,\
         return_file_with_rbins
     from future.utils import bytes_to_native_str
     

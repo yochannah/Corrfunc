@@ -1,9 +1,9 @@
 /* File: _countpairs_mocks.c */
 /*
-  This file is a part of the Corrfunc package
+  This file is a part of the corrfunc package
   Copyright (C) 2015-- Manodeep Sinha (manodeep@gmail.com)
   License: MIT LICENSE. See LICENSE file under the top-level
-  directory at https://github.com/manodeep/Corrfunc/
+  directory at https://github.com/manodeep/corrfunc/
 */
 #define NPY_NO_DEPRECATED_API NPY_1_7_API_VERSION
 
@@ -58,7 +58,7 @@ static char module_docstring[] =    "Python extensions for calculating clusterin
     "countpairs_theta_mocks: Calculate DD(theta) auto/cross-correlation function given two sets of ra/dec/cz and ra/dec/cz arrays.\n"
     "countspheres_vpf_mocks: Calculate the counts-in-spheres given one set of ra/dec/cz.\n"
     "\n\n"
-    "See `Corrfunc/call_correlation_functions_mocks.py` for example calls to each function.\n";
+    "See `corrfunc/call_correlation_functions_mocks.py` for example calls to each function.\n";
 
 /* function proto-type*/
 static PyObject *countpairs_countpairs_rp_pi_mocks(PyObject *self, PyObject *args, PyObject *kwargs);
@@ -86,8 +86,8 @@ static PyMethodDef module_methods[] = {
      "are set to 1.0 Mpc/h.\n"
      "\n"
      "Note, that this module only returns pair counts and not the actual correlation function\n"
-     ""XI_CHAR"("RP_CHAR", "PI_CHAR"). See the `~Corrfunc.utils.convert_3d_counts_to_cf.py and \n"
-     "`~Corrfunc.utils.convert_rp_pi_counts_to_wp.py for computing "XI_CHAR"("RP_CHAR","PI_CHAR") \n"
+     ""XI_CHAR"("RP_CHAR", "PI_CHAR"). See the `~corrfunc.utils.convert_3d_counts_to_cf.py and \n"
+     "`~corrfunc.utils.convert_rp_pi_counts_to_wp.py for computing "XI_CHAR"("RP_CHAR","PI_CHAR") \n"
      "and wp("RP_CHAR") from DD("RP_CHAR", "PI_CHAR").\n"
      UNICODE_WARNING
      "\n"
@@ -161,7 +161,7 @@ static PyMethodDef module_methods[] = {
      "is_comoving_dist: boolean (default false)\n"
      "   Boolean flag to indicate that ``cz`` values have already been\n"
      "   converted into co-moving distances. This flag allows arbitrary\n"
-     "   cosmologies to be used in ``Corrfunc``.\n"
+     "   cosmologies to be used in ``corrfunc``.\n"
      "\n"
      "verbose : boolean (default false)\n"
      "   Boolean flag to control output of informational messages\n"
@@ -222,7 +222,7 @@ static PyMethodDef module_methods[] = {
      "Example\n"
      "-------\n"
      ">>> import numpy as np\n"
-     ">>> from Corrfunc._countpairs_mocks import countpairs_rp_pi_mocks\n"
+     ">>> from corrfunc._countpairs_mocks import countpairs_rp_pi_mocks\n"
      ">>> ra,dec,cz = np.genfromtxt('../mocks/tests/data/Mr19_mock_northonly.rdcz.dat',dtype=np.float,unpack=True)\n"
      ">>> cosmology=1\n"
      ">>> autocorr=1\n"
@@ -251,7 +251,7 @@ static PyMethodDef module_methods[] = {
      "(i.e., seriously consider using some other code for real survey data).\n"
      "\n"
      "Note, that this module only returns pair counts and not the actual correlation function\n"
-     ""OMEGA_CHAR"("THETA_CHAR"). See  `~Corrfunc.utils.convert_3d_counts_to_cf.py` for computing\n"
+     ""OMEGA_CHAR"("THETA_CHAR"). See  `~corrfunc.utils.convert_3d_counts_to_cf.py` for computing\n"
      ""OMEGA_CHAR"("THETA_CHAR") from DD("THETA_CHAR").\n"
      UNICODE_WARNING
      "\n"
@@ -318,7 +318,7 @@ static PyMethodDef module_methods[] = {
      "   so you can choose the version you want. There are also notes on how\n"
      "   to implement faster (and less accurate) functions, particularly relevant\n"
      "   if you know your ``theta`` range is limited. If you implement a new\n"
-     "   version, then you will have to reinstall the entire Corrfunc package.\n"
+     "   version, then you will have to reinstall the entire corrfunc package.\n"
      "   \n"
      "   Note that tests will fail if you run the tests with``fast_acos=True``.\n"
      "\n"
@@ -359,7 +359,7 @@ static PyMethodDef module_methods[] = {
      "   specified in the ``binfile``. If ``output_thetaavg`` is not set, then\n"
      "   ``thetaravg`` will be set to 0.0 for all bins; similarly for ``weightavg``. ``npairs`` contains the number of\n"
      "   pairs in that bin and can be used to compute the actual "OMEGA_CHAR"("THETA_CHAR")\n"
-     "   by combining  DD, (DR) and RR counts. See ``~Corrfunc.utils.convert_3d_counts_to_cf``\n"
+     "   by combining  DD, (DR) and RR counts. See ``~corrfunc.utils.convert_3d_counts_to_cf``\n"
      "\n"
      "time : double\n"
      "   if ``c_api_timer`` is set, then the return value contains the time spent\n"
@@ -369,7 +369,7 @@ static PyMethodDef module_methods[] = {
      "-------\n"
      "\n"
      ">>> import numpy as np\n"
-     ">>> from Corrfunc._countpairs_mocks import countpairs_theta_mocks\n"
+     ">>> from corrfunc._countpairs_mocks import countpairs_theta_mocks\n"
      ">>> ra,dec,cz = np.genfromtxt('../mocks/tests/data/Mr19_mock_northonly.rdcz.dat',dtype=np.float,unpack=True)\n"
      ">>> cosmology=1\n"
      ">>> autocorr=1\n"
@@ -510,7 +510,7 @@ static PyMethodDef module_methods[] = {
      "is_comoving_dist: boolean (default false)\n"
      "   Boolean flag to indicate that ``cz`` values have already been\n"
      "   converted into co-moving distances. This flag allows arbitrary\n"
-     "   cosmologies to be used in ``Corrfunc``.\n"
+     "   cosmologies to be used in ``corrfunc``.\n"
      "\n"
      "verbose : boolean (default false)\n"
      "   Boolean flag to control output of informational messages\n"
@@ -562,7 +562,7 @@ static PyMethodDef module_methods[] = {
     "Example\n"
     "--------\n"
     "\n"
-    ">>> import Corrfunc\n"
+    ">>> import corrfunc\n"
     ">>> import math\n"
     ">>> from os.path import dirname, abspath, join as pjoin\n"
     ">>> rmax = 10.0\n"
@@ -572,7 +572,7 @@ static PyMethodDef module_methods[] = {
     ">>> numpN = 6\n"
     ">>> threshold_ngb = 1  # does not matter since we have the centers\n"
     ">>> cosmology = 1  # LasDamas cosmology\n"
-    ">>> centers_file = pjoin(dirname(abspath(Corrfunc.__file__)),\n"
+    ">>> centers_file = pjoin(dirname(abspath(corrfunc.__file__)),\n"
     "                         '../mocks/tests/data/',\n"
     "                         'Mr19_centers_xyz_forVPF_rmax_10Mpc.txt')\n"
     ">>> N = 100000\n"

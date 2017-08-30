@@ -4,13 +4,13 @@ Converting :math:`(r_p, \pi)` pairs into a projected correlation function
 ==========================================================================
 
 Pair counts in :math:`(r_p, \pi)` can be converted into a projected correlation function
-by using the helper function :py:mod:`Corrfunc.utils.convert_rp_pi_counts_to_wp`.
+by using the helper function :py:mod:`corrfunc.utils.convert_rp_pi_counts_to_wp`.
 
 .. code-block:: python
 
-          >>> from Corrfunc.theory import DDrppi
-          >>> from Corrfunc.io import read_catalog
-          >>> from Corrfunc.utils import convert_rp_pi_counts_to_wp
+          >>> from corrfunc.theory import DDrppi
+          >>> from corrfunc.io import read_catalog
+          >>> from corrfunc.utils import convert_rp_pi_counts_to_wp
           
           # Read the supplied galaxies on a periodic box          
           >>> X, Y, Z = read_catalog()
@@ -49,7 +49,7 @@ by using the helper function :py:mod:`Corrfunc.utils.convert_rp_pi_counts_to_wp`
           ...                                 DD_counts, DR_counts,
           ...                                 DR_counts, RR_counts, nrpbins, pimax)
 
-See the complete reference here :py:mod:`Corrfunc`.  
+See the complete reference here :py:mod:`corrfunc`.  
 
    
                    

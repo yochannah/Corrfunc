@@ -6,15 +6,15 @@ Directly Computing :math:`\xi(r)` and :math:`wp(rp)`
 For a periodic cosmological box, the 3-d auto correlation, :math:`\xi(r)`, and
 the projected auto correlation function, :math:`wp(rp)`, can be directly computed
 using the Natural Estimator. The relevant python wrappers are present in
-:py:mod:`Corrfunc.theory.xi` and :py:mod:`Corrfunc.theory.wp`.  See :ref:`rr_autocorrelations`
+:py:mod:`corrfunc.theory.xi` and :py:mod:`corrfunc.theory.wp`.  See :ref:`rr_autocorrelations`
 for details on how the Natural Estimator is computed.
 
 .. code-block:: python
 
           >>> import numpy as np
-          >>> from Corrfunc.theory.wp import wp
-          >>> from Corrfunc.theory.xi import xi
-          >>> from Corrfunc.io import read_catalog
+          >>> from corrfunc.theory.wp import wp
+          >>> from corrfunc.theory.xi import xi
+          >>> from corrfunc.io import read_catalog
           >>> X, Y, Z = read_catalog()
           >>> boxsize = 420.0
           >>> nthreads = 2
@@ -25,4 +25,4 @@ for details on how the Natural Estimator is computed.
           >>> xi_counts = xi(boxsize, nthreads, bins, X, Y, Z)
                 
 
-See the complete reference here :py:mod:`Corrfunc`.
+See the complete reference here :py:mod:`corrfunc`.

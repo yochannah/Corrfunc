@@ -1,9 +1,9 @@
 /* File: DDrppi_mocks.c */
 /*
-  This file is a part of the Corrfunc package
+  This file is a part of the corrfunc package
   Copyright (C) 2015-- Manodeep Sinha (manodeep@gmail.com)
   License: MIT LICENSE. See LICENSE file under the top-level
-  directory at https://github.com/manodeep/Corrfunc/
+  directory at https://github.com/manodeep/corrfunc/
 */
 
 /* PROGRAM DDrppi
@@ -68,7 +68,7 @@ int main(int argc, char *argv[])
     gettimeofday(&t_start,NULL);
     int nthreads=1;
     
-    /*---Corrfunc-variables----------------*/
+    /*---corrfunc-variables----------------*/
 #if defined(_OPENMP)
     const char argnames[][30]={"file1","format1","file2","format2","binfile","pimax","cosmology flag","numthreads"};
 #else

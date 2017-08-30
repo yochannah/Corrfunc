@@ -5,7 +5,7 @@
 Python wrapper around the C extension for the angular correlation function
 :math:`\\omega(\\theta)`. Corresponding C routines are in 
 ``mocks/DDtheta_mocks/``, while the python interface is 
-:py:mod:`Corrfunc.mocks.DDtheta_mocks`
+:py:mod:`corrfunc.mocks.DDtheta_mocks`
 """
 
 from __future__ import (division, print_function, absolute_import,
@@ -36,7 +36,7 @@ def DDtheta_mocks(autocorr, nthreads, binfile,
 
     .. note:: This module only returns pair counts and not the actual
        correlation function :math:`\\omega(\theta)`. See 
-       :py:mod:`Corrfunc.utils.convert_3d_counts_to_cf` for computing 
+       :py:mod:`corrfunc.utils.convert_3d_counts_to_cf` for computing 
        :math:`\\omega(\theta)` from the pair counts returned.
 
 
@@ -147,7 +147,7 @@ def DDtheta_mocks(autocorr, nthreads, binfile,
        so you can choose the version you want. There are also notes on how
        to implement faster (and less accurate) functions, particularly relevant
        if you know your ``theta`` range is limited. If you implement a new
-       version, then you will have to reinstall the entire Corrfunc package.
+       version, then you will have to reinstall the entire corrfunc package.
 
 
     .. note:: Tests will fail if you run the tests with``fast_acos=True``.
@@ -209,9 +209,9 @@ def DDtheta_mocks(autocorr, nthreads, binfile,
     >>> import time
     >>> from math import pi
     >>> from os.path import dirname, abspath, join as pjoin
-    >>> import Corrfunc
-    >>> from Corrfunc.mocks.DDtheta_mocks import DDtheta_mocks
-    >>> binfile = pjoin(dirname(abspath(Corrfunc.__file__)),
+    >>> import corrfunc
+    >>> from corrfunc.mocks.DDtheta_mocks import DDtheta_mocks
+    >>> binfile = pjoin(dirname(abspath(corrfunc.__file__)),
     ...                 "../mocks/tests/", "angular_bins")
     >>> N = 100000
     >>> nthreads = 4
@@ -258,7 +258,7 @@ def DDtheta_mocks(autocorr, nthreads, binfile,
     """
 
     try:
-        from Corrfunc._countpairs_mocks import countpairs_theta_mocks as\
+        from corrfunc._countpairs_mocks import countpairs_theta_mocks as\
             DDtheta_mocks_extn
     except ImportError:
         msg = "Could not import the C extension for the angular "\
@@ -266,7 +266,7 @@ def DDtheta_mocks(autocorr, nthreads, binfile,
         raise ImportError(msg)
 
     import numpy as np
-    from Corrfunc.utils import translate_isa_string_to_enum, fix_ra_dec,\
+    from corrfunc.utils import translate_isa_string_to_enum, fix_ra_dec,\
         return_file_with_rbins
     from future.utils import bytes_to_native_str
     

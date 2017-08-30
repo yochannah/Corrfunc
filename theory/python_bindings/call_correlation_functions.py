@@ -13,7 +13,7 @@ try:
     from future.utils import bytes_to_native_str
 except ImportError:
     print("\n\tPlease run python setup.py install before using "
-          "the 'Corrfunc' package\n")
+          "the 'corrfunc' package\n")
     raise
 
 from os.path import dirname, abspath, exists, splitext, join as pjoin
@@ -55,7 +55,7 @@ def read_catalog(filebase=None):
 
     Returns:
     * ``x y z`` - Unpacked numpy arrays compatible with the installed
-    version of ``Corrfunc``.
+    version of ``corrfunc``.
 
     **Note** If the filename is omitted, then first the fast-food file
     is searched for, and then the ascii file. End-users should always

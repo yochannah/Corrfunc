@@ -4,17 +4,17 @@ Converting 3D pair counts into a correlation function
 ======================================================
 
 3D pair counts can be converted into a correlation function
-by using the helper function :py:mod:`Corrfunc.utils.convert_3d_counts_to_cf`.
+by using the helper function :py:mod:`corrfunc.utils.convert_3d_counts_to_cf`.
 First, we have to compute the relevant pair counts using the python
-wrapper :py:mod:`Corrfunc.theory.DD`
+wrapper :py:mod:`corrfunc.theory.DD`
 
 .. code-block:: python
 
           >>> import numpy as np
           >>> from os.path import dirname, abspath, join as pjoin
-          >>> from Corrfunc.theory.DD import DD
-          >>> from Corrfunc.io import read_catalog
-          >>> from Corrfunc.utils import convert_3d_counts_to_cf
+          >>> from corrfunc.theory.DD import DD
+          >>> from corrfunc.io import read_catalog
+          >>> from corrfunc.utils import convert_3d_counts_to_cf
 
           >>> # Read the supplied galaxies on a periodic box
           >>> X, Y, Z = read_catalog()
@@ -52,6 +52,6 @@ wrapper :py:mod:`Corrfunc.theory.DD`
           ...                             DD_counts, DR_counts,
           ...                             DR_counts, RR_counts)
           
-See the complete reference here :py:mod:`Corrfunc`.
+See the complete reference here :py:mod:`corrfunc`.
    
                    

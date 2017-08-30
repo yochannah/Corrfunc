@@ -6,28 +6,28 @@
 License and Citation Information
 ==============================================
 
-Citing Corrfunc
+Citing corrfunc
 ------------------
 
-Corrfunc is currently preparing for its first "official" release (v2.0.0).
+corrfunc is currently preparing for its first "official" release (v2.0.0).
 The v2.0.0 release is accompanied with a code-release paper,
 `ArXiv <http://arxiv.org/>`_. If you use
-Corrfunc modules in your analysis, please cite this code-release paper. While
-the paper is being written, you can cite Corrfunc with the Zenodo DOI::
+corrfunc modules in your analysis, please cite this code-release paper. While
+the paper is being written, you can cite corrfunc with the Zenodo DOI::
 
    @misc{manodeep_sinha_2016_55161,
    author       = {Manodeep Sinha},
-   title        = {Corrfunc: Corrfunc-1.1.0},
+   title        = {corrfunc: corrfunc-1.1.0},
    month        = jun,
    year         = 2016,
    doi          = {10.5281/zenodo.55161},
    url          = {{http://dx.doi.org/10.5281/zenodo.55161}}
 
 
-Corrfunc License
+corrfunc License
 ---------------------
 
-Corrfunc comes with a MIT LICENSE - see the LICENSE file.
+corrfunc comes with a MIT LICENSE - see the LICENSE file.
 
 Copyright (C) 2014 Manodeep Sinha (manodeep@gmail.com)
 

@@ -1,9 +1,9 @@
 /* File: _countpairs.c */
 /*
-  This file is a part of the Corrfunc package
+  This file is a part of the corrfunc package
   Copyright (C) 2015-- Manodeep Sinha (manodeep@gmail.com)
   License: MIT LICENSE. See LICENSE file under the top-level
-  directory at https://github.com/manodeep/Corrfunc/
+  directory at https://github.com/manodeep/corrfunc/
 */
 #define PY_SSIZE_T_CLEAN
 #define NPY_NO_DEPRECATED_API NPY_1_7_API_VERSION
@@ -65,7 +65,7 @@ static char module_docstring[]             =    "Python extensions for calculati
     "countpairs_xi    : Calculate the 3-d auto-correlation function xi (assumes PERIODIC) given one set of arrays with Cartesian XYZ positions\n"
     "countpairs_vpf   : Calculate the counts-in-spheres given one set of arrays with Cartesian XYZ positions\n"
     "\n"
-    "See `Corrfunc/call_correlation_functions.py` for example calls to each function in the extension.\n";
+    "See `corrfunc/call_correlation_functions.py` for example calls to each function in the extension.\n";
 
 /* static char error_out_docstring[]          =  "Error-handler for the module."; */
 
@@ -94,7 +94,7 @@ static PyMethodDef module_methods[] = {
      "Note, that this module only returns pair counts and not the actual \n"
      "correlation function "XI_CHAR"(r). See the mocks/wtheta/wtheta.c for \n"
      "computing "XI_CHAR"(r) from the output of DD(r). Also note that the \n"
-     "python wrapper for this extension: `Corrfunc.theory.DD` is more user-friendly.\n"
+     "python wrapper for this extension: `corrfunc.theory.DD` is more user-friendly.\n"
      UNICODE_WARNING
      "\n"
      "Parameters \n"
@@ -196,8 +196,8 @@ static PyMethodDef module_methods[] = {
     "Example\n"
     "-------\n\n"
      
-    ">>> from Corrfunc._countpairs import countpairs\n"
-    ">>> from Corrfunc.io import read_catalog\n" 
+    ">>> from corrfunc._countpairs import countpairs\n"
+    ">>> from corrfunc.io import read_catalog\n" 
     ">>> x,y,z = read_catalog()\n"
     ">>> autocorr=1\n"
     ">>> nthreads=2\n"
@@ -219,7 +219,7 @@ static PyMethodDef module_methods[] = {
      "Note, that this module only returns pair counts and not the actual\n"
      "correlation function "XI_CHAR"("RP_CHAR", "PI_CHAR"). See ``theory/DDrppi/wprp.c``\n"
      "for computing wp("RP_CHAR") from the pair counts returned by this module.\n"
-     "Also note that the python wrapper for this extension: `Corrfunc.theory.DDrppi`\n"
+     "Also note that the python wrapper for this extension: `corrfunc.theory.DDrppi`\n"
      "is more user-friendly.\n"
      UNICODE_WARNING
      "\n"
@@ -332,8 +332,8 @@ static PyMethodDef module_methods[] = {
      "Example\n"
      "--------\n"
      "\n"
-     ">>> from Corrfunc._countpairs import countpairs_rp_pi\n"
-     ">>> from Corrfunc.io import read_catalog\n" 
+     ">>> from corrfunc._countpairs import countpairs_rp_pi\n"
+     ">>> from corrfunc.io import read_catalog\n" 
      ">>> x,y,z = read_catalog()\n"
      ">>> autocorr=1\n"
      ">>> nthreads=2\n"
@@ -365,7 +365,7 @@ static PyMethodDef module_methods[] = {
      "0.0, then all the self-pairs (i'th particle with itself) are\n"
      "added to the first bin => minimum number of pairs in the first bin\n"
      "is the total number of particles. Also note that the python wrapper\n"
-     "for this extension: `Corrfunc.theory.wp` is more user-friendly.\n"
+     "for this extension: `corrfunc.theory.wp` is more user-friendly.\n"
      UNICODE_WARNING
      "\n"
      "Parameters\n"
@@ -476,7 +476,7 @@ static PyMethodDef module_methods[] = {
      "--------\n"
      "\n"
      ">>> from _countpairs import countpairs_wp\n"
-     ">>> from Corrfunc.io import read_catalog\n" 
+     ">>> from corrfunc.io import read_catalog\n" 
      ">>> x,y,z = read_catalog()\n"
      ">>> nthreads=2\n"
      ">>> pimax=40.0\n"
@@ -505,7 +505,7 @@ static PyMethodDef module_methods[] = {
      "0.0, then all the self-pairs (i'th particle with itself) are\n"
      "added to the first bin => minimum number of pairs in the first bin\n"
      "is the total number of particles. Also note that the python wrapper\n"
-     "for this extension: `Corrfunc.theory.xi` is more user-friendly.\n"
+     "for this extension: `corrfunc.theory.xi` is more user-friendly.\n"
      UNICODE_WARNING
      "\n"
      "Parameters\n"
@@ -593,7 +593,7 @@ static PyMethodDef module_methods[] = {
      "--------\n"
      "\n"
      ">>> from _countpairs import countpairs_xi\n"
-     ">>> from Corrfunc.io import read_catalog\n" 
+     ">>> from corrfunc.io import read_catalog\n" 
      ">>> x,y,z = read_catalog()\n"
      ">>> nthreads=2\n"
      ">>> boxsize = 420.0\n"
@@ -707,7 +707,7 @@ static PyMethodDef module_methods[] = {
      "--------\n"
      "\n"
      ">>> from _countpairs import countspheres_vpf\n"
-     ">>> from Corrfunc.io import read_catalog\n"
+     ">>> from corrfunc.io import read_catalog\n"
      ">>> rmax = 10.0\n"
      ">>> nbins = 10\n"
      ">>> nspheres = 10000\n"

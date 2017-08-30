@@ -44,9 +44,9 @@ def read_fastfood_catalog(filename, return_dtype=None, need_header=None):
     --------
     >>> import numpy as np
     >>> from os.path import dirname, abspath, join as pjoin
-    >>> import Corrfunc
-    >>> from Corrfunc.io import read_fastfood_catalog
-    >>> filename = pjoin(dirname(abspath(Corrfunc.__file__)),
+    >>> import corrfunc
+    >>> from corrfunc.io import read_fastfood_catalog
+    >>> filename = pjoin(dirname(abspath(corrfunc.__file__)),
     ...                  "../theory/tests/data/",
     ...                  "gals_Mr19.ff")
     >>> X, Y, Z = read_fastfood_catalog(filename)
@@ -92,7 +92,7 @@ def read_fastfood_catalog(filename, return_dtype=None, need_header=None):
         from future.utils import bytes_to_native_str
     except ImportError:
         print("\n\tPlease run python setup.py install before using "
-              "the 'Corrfunc' package\n")
+              "the 'corrfunc' package\n")
         raise
 
     with open(filename, "rb") as f:
@@ -179,9 +179,9 @@ def read_ascii_catalog(filename, return_dtype=None):
     --------
     >>> from __future__ import print_function
     >>> from os.path import dirname, abspath, join as pjoin
-    >>> import Corrfunc
-    >>> from Corrfunc.io import read_ascii_catalog
-    >>> filename = pjoin(dirname(abspath(Corrfunc.__file__)),
+    >>> import corrfunc
+    >>> from corrfunc.io import read_ascii_catalog
+    >>> filename = pjoin(dirname(abspath(corrfunc.__file__)),
     ...                 "../mocks/tests/data/", "Mr19_mock_northonly.rdcz.dat")
     >>> ra, dec, cz = read_ascii_catalog(filename)
     >>> N = 20
@@ -261,7 +261,7 @@ def read_catalog(filebase=None, return_dtype=np.float):
     --------
 
     ``x y z`` - Unpacked numpy arrays compatible with the installed
-    version of ``Corrfunc``.
+    version of ``corrfunc``.
 
 
     .. note:: If the filename is omitted, then first the fast-food file

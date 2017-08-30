@@ -1,7 +1,7 @@
 .. _commandline-interface:
 
 *********************************************
-Using the command-line interface in Corrfunc
+Using the command-line interface in corrfunc
 *********************************************
 
 This guide assumes that you already followed the :ref:`step_by_step_install`
@@ -11,7 +11,7 @@ up on your machine.
 Calculating spatial clustering statistics in simulation boxes
 ==============================================================
 
-Corrfunc can compute a range of spatial correlation functions and the
+corrfunc can compute a range of spatial correlation functions and the
 counts-in-cells. The easiest way to get help on the command-line is by calling
 the executables without any input parameters. Here is the list of executables
 associated with each type of clustering statistic:

@@ -38,7 +38,7 @@ OPT += -DUSE_OMP
 
 
 ### You should NOT edit below this line
-DISTNAME:=Corrfunc
+DISTNAME:=corrfunc
 MAJOR:=2
 MINOR:=0
 PATCHLEVEL:=1
@@ -478,7 +478,7 @@ ifeq ($(DO_CHECKS), 1)
   ### Done with python checks
 
 
-  ### The following sections are currently not relevant for the Corrfunc package
+  ### The following sections are currently not relevant for the corrfunc package
   ### but I do not want to have to figure this out again!
   ifeq (USE_MKL,$(findstring USE_MKL,$(OPT)))
     BLAS_INCLUDE:=-DMKL_ILP64 -m64 -I$(MKLROOT)/include
