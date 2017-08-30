@@ -365,8 +365,8 @@ Project URL
 .. |ASCL| image:: https://img.shields.io/badge/ascl-1703.003-blue.svg?colorB=262255
    :target: http://ascl.net/1703.003
    :alt: ascl:1703.003
-.. |Travis Build| image:: https://travis-ci.org/manodeep/corrfunc.svg?branch=master
-   :target: https://travis-ci.org/manodeep/corrfunc
+.. |Travis Build| image:: https://travis-ci.org/manodeep/Corrfunc.svg?branch=master
+   :target: https://travis-ci.org/manodeep/Corrfunc
    :alt: Build Status
 .. |Issues| image:: https://img.shields.io/github/issues/manodeep/corrfunc.svg
    :target: https://github.com/manodeep/corrfunc/issues
