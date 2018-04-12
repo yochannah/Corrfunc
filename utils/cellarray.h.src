@@ -19,17 +19,18 @@ extern "C" {
 
 #include "weight_defs_DOUBLE.h"
 
-typedef struct{
+typedef struct {
   DOUBLE *x;
   DOUBLE *y;
   DOUBLE *z;
-  int64_t nelements;//Here the xyz positions will be stored in their individual pointers. More amenable to sorting -> used by wp and xi
+  int64_t nelements;    // Here the xyz positions will be stored in their individual pointers. More
+                        // amenable to sorting -> used by wp and xi
 } cellarray_DOUBLE;
 
-
 typedef struct cellarray_index_particles_DOUBLE cellarray_index_particles_DOUBLE;
-struct cellarray_index_particles_DOUBLE{
-  int64_t nelements;//Here the xyz positions will be stored in their individual pointers. More amenable to sorting -> used by wp and xi
+struct cellarray_index_particles_DOUBLE {
+  int64_t nelements;    // Here the xyz positions will be stored in their individual pointers. More
+                        // amenable to sorting -> used by wp and xi
   int64_t num_ngb;
   DOUBLE *x;
   DOUBLE *y;
@@ -41,7 +42,6 @@ struct cellarray_index_particles_DOUBLE{
   DOUBLE *zwrap;
 };
 
-  
 #ifdef __cplusplus
 }
 #endif

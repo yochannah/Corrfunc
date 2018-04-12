@@ -8,7 +8,6 @@
 
 #pragma once
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -16,7 +15,7 @@ extern "C" {
 /*Taken from http://stackoverflow.com/questions/794632/programmatically-get-the-cache-line-size*/
 #include <stddef.h>
 size_t cache_line_size(void);
-    
+
 #ifdef __cplusplus
 }
 #endif

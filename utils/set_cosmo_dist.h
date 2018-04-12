@@ -15,14 +15,13 @@
 extern "C" {
 #endif
 
-
 #define SPEED_OF_LIGHT 299800.0
 
-    extern int set_cosmo_dist(const double zmax,const int max_size,double *zc,double *dc,const int lasdamas_cosmology);
+extern int set_cosmo_dist(const double zmax, const int max_size, double *zc, double *dc,
+                          const int lasdamas_cosmology);
 
 #ifdef __cplusplus
 }
 #endif
-
 
 #endif

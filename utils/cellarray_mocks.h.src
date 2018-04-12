@@ -20,34 +20,33 @@ extern "C" {
 
 #include "weight_defs_DOUBLE.h"
 
+/* Used for DDrppi_mocks */
+typedef struct cellarray_mocks_index_particles_DOUBLE cellarray_mocks_index_particles_DOUBLE;
+struct cellarray_mocks_index_particles_DOUBLE {
+  int64_t nelements;
+  int64_t num_ngb;
+  DOUBLE *x;
+  DOUBLE *y;
+  DOUBLE *z;
+  DOUBLE *cz;    // co-moving distance
+  weight_struct_DOUBLE weights;
+  cellarray_mocks_index_particles_DOUBLE **ngb_cells;
+};
 
-    /* Used for DDrppi_mocks */
-    typedef struct cellarray_mocks_index_particles_DOUBLE cellarray_mocks_index_particles_DOUBLE;
-    struct cellarray_mocks_index_particles_DOUBLE{
-        int64_t nelements;
-        int64_t num_ngb;
-        DOUBLE *x;
-        DOUBLE *y;
-        DOUBLE *z;
-        DOUBLE *cz;//co-moving distance
-        weight_struct_DOUBLE weights;
-        cellarray_mocks_index_particles_DOUBLE **ngb_cells;
-    };
-
-    /* Used for wtheta */
-    typedef struct cellarray_mocks_index_wtheta_DOUBLE cellarray_mocks_index_wtheta_DOUBLE;
-    struct cellarray_mocks_index_wtheta_DOUBLE{
-        int64_t nelements;
-        DOUBLE *x;
-        DOUBLE *y;
-        DOUBLE *z;
-        weight_struct_DOUBLE weights;
-        DOUBLE ra_min;
-        DOUBLE ra_max;
-        int num_ngb;
-        int ngb_allocated;
-        cellarray_mocks_index_wtheta_DOUBLE **ngb_cells;
-    };
+/* Used for wtheta */
+typedef struct cellarray_mocks_index_wtheta_DOUBLE cellarray_mocks_index_wtheta_DOUBLE;
+struct cellarray_mocks_index_wtheta_DOUBLE {
+  int64_t nelements;
+  DOUBLE *x;
+  DOUBLE *y;
+  DOUBLE *z;
+  weight_struct_DOUBLE weights;
+  DOUBLE ra_min;
+  DOUBLE ra_max;
+  int num_ngb;
+  int ngb_allocated;
+  cellarray_mocks_index_wtheta_DOUBLE **ngb_cells;
+};
 
 #ifdef __cplusplus
 }
